@@ -1,0 +1,222 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --primary_background: #0A0E1A;
+    --card_background: rgba(225, 255, 255, 0.04);
+    --border: rgba(225, 255, 255, 0.06);
+    --text_primary: #ffffff;
+    --text_secondary: #8892B0;
+    --accent_purple: #B926FF;
+    --accent_green: #00F5A0;
+    --danger_red: #FF4D6D;
+    --box_shadow: rgba(0, 0, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--primary_background);
+    width: 100%;
+    height: 100vh;
+}
+
+
+.mt5account_form {
+    background-color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    padding: 10px;
+    overflow: auto;
+}
+
+
+.mt5account_form .account_body {
+    width: 400px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.mt5account_form .account_body h4 {
+    text-align: center;
+    color: var(--text_secondary);
+    margin-bottom: 8px;
+}
+
+.mt5account_form .account_body p {
+    text-align: center;
+    color: var(--text_primary);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.mt5account_form .account_body .input {
+    display: flex;
+    flex-direction: column;
+}
+
+.mt5account_form .account_body .input label {
+    color: var(--text_secondary);
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.mt5account_form .account_body .bothname {
+    display: flex;
+    align-items: center;
+}
+
+.mt5account_form .account_body .bothname #firstname {
+    margin-right: 10px;
+}
+
+.mt5account_form .account_body .bothname label {
+    color: var(--text_secondary);
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.mt5account_form .account_body .bothname input[type="text"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    color: var(--text_secondary);
+    margin-bottom: 10px;
+}
+
+.mt5account_form .account_body .bothname #firstname {
+    margin-right: 8px;
+}
+
+.mt5account_form .account_body .input input[type="text"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    color: var(--text_secondary);
+    margin-bottom: 10px;
+}
+
+.mt5account_form .account_body .input input[type="password"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: var(--text_secondary);
+}
+
+.mt5account_form .account_body .checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mt5account_form .account_body .checkbox .check {
+    display: flex;
+    align-items: center;
+}
+
+.mt5account_form .account_body .checkbox .check input[type="checkbox"] {
+    margin-right: 8px;
+    border-radius: 5px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    outline: none;
+}
+
+.mt5account_form .account_body .checkbox .check p {
+    margin-top: 10px;
+}
+
+.mt5account_form .account_body .checkbox a {
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--accent_purple);
+}
+
+/* terms */
+
+.mt5account_form .account_body .termsbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mt5account_form .account_body .termsbox .check {
+    display: flex;
+    align-items: center;
+}
+
+.mt5account_form .account_body .termsbox .check input[type="checkbox"] {
+    margin-right: 8px;
+    border-radius: 5px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    outline: none;
+}
+
+.mt5account_form .account_body .termsbox .check p {
+    margin-top: 10px;
+}
+
+.mt5account_form .account_body .termsbox a {
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--accent_purple);
+}
+
+.mt5account_form .account_body input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 6px;
+}
+
+.mt5account_form p a {
+    text-decoration: none;
+    color: var(--accent_purple);
+}
+
+.mt5account_form #error {
+    color: red;
+    text-align: center;
+}
+
+.mt5account_form #emailerror {
+    color: red;
+    text-align: left;
+}
+
+.mt5account_form #usernameerror {
+    color: red;
+    text-align: left;
+}

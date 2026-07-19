@@ -1,0 +1,246 @@
+{% extends "authentication/landing_base.html" %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/authentication/landing_base.css' %}">
+    <title>PropSafe</title>
+{% endblock %}
+
+{% block content %}
+    <main>
+
+        <div class="hero">
+            <header>
+                <div class="first">
+                    <button type="button" class="discipline">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" clbuttonss="size-5">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <p>Built for disciplined traders</p>
+                    </button>
+                    <h1>🔥Turn discipline into your superpower.</h1>
+                    <p>PropSafe is the all-in-one trading journal that <br> helps you track trades, master you mindset, <br> and pass any prop firm challenge.</p>
+                    <p>Stop revenge-trading. Build consistency. <br> Pass prop firm challenges with data-backend acccountability</p>
+                    <button type="button" id="getStartedBtn">Get Started Now</button>
+                    <button type="button" id="watchDemo">Watch Demo</button>
+                </div>
+                <div class="second">
+                    <div class="image_cover">
+                        <img src="{% static 'images/prop_home.PNG' %}" alt="">
+                    </div>
+                </div>
+            </header>
+            
+            <div class="performance" id="how_it_works">
+                <h3>Everything you need to become a consistent, profitable trader.</h3>
+                <div class="performance_container">
+                    <div class="cards">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" clbuttonss="size-5">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <h4>Smart Trade Journal</h4>
+                        <p>Log trades in seconds tract every detail, emotion, and screenshot</p>
+                    </div>
+
+                    <div class="cards">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" clbuttonss="size-5">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <h4>Performace Analytics</h4>
+                        <p>Powerful stats and charts that reveal patterns and improve your edge.</p>
+                    </div>
+
+                    <div class="cards">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" clbuttonss="size-5">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <h4>Consistency Simulator</h4>
+                        <p>See if you'll pass prop firm challenges before you take the next trade</p>
+                    </div>
+
+                    <div class="cards">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" clbuttonss="size-5">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <h4>Streaks & Badges</h4>
+                        <p>Build discipline with streaks, earn badges, and stay motivated every day.</p>
+                    </div>
+
+                    <div class="cards">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" clbuttonss="size-5">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <h4>Journal Insights</h4>
+                        <p>AI-powered insights uncover your strengths, weakness, and emotional patterns.</p>
+                    </div>
+
+                    <div class="cards">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" clbuttonss="size-5">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <h4>Cloud Sync</h4>
+                        <p>Access your journal anywhere. Your data is always safe and secure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mobile_responsive">
+                <div class="mobile_image">
+                    <img src="{% static 'images/prop_mobile.PNG' %}" alt="">
+                </div>
+                <div class="mobile_details">
+                    <strong>PROP FIRM CONSISTENCY SIMULATOR</strong>
+                    <h1>Pass Challange with <br> confidence.</h1>
+                    <p>Our Simulator calculates your risk in real-time and show <br> your exactly what you can risk on the next trade to stay <br> within the rules.</p>
+
+                    <ul>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" clbuttonss="size-5">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                                clip-rule="evenodd" />
+                            </svg>
+                            <p>Works for FTMO, FundendNext, 5%ers & More.</p>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" clbuttonss="size-5">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                                clip-rule="evenodd" />
+                            </svg>
+                            <p>Real-time risk calculation</p>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" clbuttonss="size-5">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                                clip-rule="evenodd" />
+                            </svg>
+                            <p>Know your maximum daily loss</p>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" clbuttonss="size-5">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                                clip-rule="evenodd" />
+                            </svg>
+                            <p> Stay consistent, pass with confident</p>
+                        </li>
+                    </ul>
+                    <button>See How it works</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="features_section" id="features">
+            <h2>FEATURES SECTION</h2>
+
+            <div class="feature_card">
+                <div class="feature1 card">
+                    <h4>🔥 Streak Tracking</h4>
+                    <p>Never miss a day. Build momemtum with daily logging</p>
+                </div>
+                <div class="feature2 card">
+                    <h4>🏦 Smart Analytics</h4>
+                    <p>See patterns in your trading behaviour without the ego hit.</p>
+                </div>
+                <div class="feature3 card">
+                    <h4>Prop Firm Simulator</h4>
+                    <p>Practice consistency rules before paying for a challenge.</p>
+                </div>
+                <div class="feature4 card">
+                    <h4>🏦 MT5 Auto</h4>
+                    <p>Connect your MetaTrader 5 and auto-log every trade.</p>
+                </div>
+                <div class="feature5 card">
+                    <h4>🧠 Emotional Intelligence</h4>
+                    <p>Get Alerts when your risk spikes after losses.</p>
+                </div>
+                <div class="feature6 card">
+                    <h4>🏅 Gamified Badges</h4>
+                    <p>Turn logging into a game-earn rewards.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing_section" id="pricing">
+            <h2>PRICING SECTION</h2>
+
+            <div class="pricing_card">
+                <div class="pricing1 card">
+                    <h4>Free Beta</h4>
+                    <p>Join early and help shape PropSafe</p>
+                    <p>$0 / Month</p>
+                    <ul>
+                        <li>Streak tracking</li>
+                        <li>Basic stats</li>
+                        <li>7 history</li>
+                    </ul>
+                    <button>Get Started</button>
+                </div>
+                <div class="pricing2 card">
+                    <h4>Pro</h4>
+                    <p>$25 / Month</p>
+                    <ul>
+                        <li>Everything in Free</li>
+                        <li>MT5 auto-sync</li>
+                        <li>Advanced analytics</li>
+                        <li>Prop firm simulator</li>
+                    </ul>
+                    <button>Get Started</button>
+                </div>
+                <div class="pricing3 card">
+                    <h4>Elite</h4>
+                    <p>$75 / Month</p>
+                    <ul>
+                        <li>Everything in Pro</li>
+                        <li>1-on-1 coaching</li>
+                        <li>Priority support</li>
+                        <li>Custom goals</li>
+                    </ul>
+                    <button>Get Started</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq_section" id="faq">
+            <h2>FAQ SECTION</h2>
+
+            <div class="faq_section_card">
+                <div class="section_card">
+                    <h4>? What is PropSafe</h3>
+                    <p>A trading discipline app that helps you gamified tracking and emotional intelligence insights.</p>
+                </div>
+                <div class="section_card">
+                    <h4>? Do I need to connect my MT5</h3>
+                    <p>No! You can log trades manually. MT5 sync is optional but recommmend.</p>
+                </div>
+                <div class="section_card">
+                    <h4>? Is this for beginners or pro trader.</h3>
+                    <p>Both. if you struggle with displine, this is for you.</p>
+                </div>
+                <div class="section_card">
+                    <h4>? Can i cancle anytime?</h3>
+                    <p>Yes. No questions asked.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="{% static 'js/authentication/landing_base.js' %}"></script>
+{% endblock  %}

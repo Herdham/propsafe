@@ -1,0 +1,644 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --primary_background: #0A0E1A;
+    --card_background: rgba(225, 255, 255, 0.04);
+    --border: rgba(225, 255, 255, 0.06);
+    --text_primary: #ffffff;
+    --text_secondary: #8892B0;
+    --accent_purple: #B926FF;
+    --accent_green: #00F5A0;
+    --danger_red: #FF4D6D;
+    --box_shadow: rgba(0, 0, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+svg {
+    width: 25px;
+    height: 25px;
+}
+
+body {
+    background-color: var(--text_primary);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container header {
+    width: 15%;
+    height: 100vh;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    background-color: #dddddd;
+    overflow-y: auto;
+}
+
+.container header .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container header .logo svg {
+    stroke-width: 3px;
+    margin-right: 10px;
+    stroke: #B926FF;
+}
+
+.container header ul {
+    margin-bottom: 30px;
+}
+
+.container header ul a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.container header ul a:nth-child(1) {
+    background-color: #e5cef0;
+    border-radius: 6px;
+}
+
+.container header ul a:hover {
+    background-color: #e5cef0;
+    border-radius: 6px;
+}
+
+.container header ul a svg {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    stroke: #0A0E1A;
+}
+
+.container header ul a p {
+    font-size: 13px;
+    color: #0A0E1A;
+}
+
+.container header .ai_coach {
+    margin-bottom: 30px;
+    padding: 8px;
+    background-color: #0A0E1A;
+    border-radius: 6px;
+}
+
+.container header .ai_coach h5 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.container header .ai_coach p {
+    color: var(--text_secondary);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.container header .ai_coach button {
+    border: none;
+    outline: none;
+    background-color: var(--accent_purple);
+    color: #ffffff;
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.container header .user_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.container header .user_info .user_info_container {
+    display: flex;
+    align-items: center;
+}
+
+.container header .user_info .user_info_container img {
+    border-radius: 50px;
+    margin-right: 10px;
+    align-self: flex-start;
+}
+
+.container header .user_info .user_info_container .user_header h4 {
+    font-size: 14px;
+}
+
+.container header .user_info .user_info_container .user_header p {
+    font-size: 12px;
+}
+
+.container header .user_info svg {
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.container main {
+    margin-left: 15%;
+    width: 84%;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+.container main nav {
+    width: 78%;
+    padding: 8px;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.container main nav .first p {
+    color: var(--text_secondary);
+}
+
+.container main nav .second {
+    display: flex;
+    align-items: center;
+}
+
+.container main nav .second svg {
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.container main nav .second a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: var(--accent_purple);
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.container main nav .second a svg {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.container main nav .second a p {
+    font-size: 12px;
+}
+
+.container main nav .second img {
+    border-radius: 50px;
+}
+
+.container main .nav_bottom {
+    width: 100%;
+    padding: 8px;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    background-color: #fff;
+    margin: 0px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    display: none;
+}
+
+.container main .nav_bottom ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container main .nav_bottom ul a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container main .nav_bottom ul a svg {
+    width: 20px;
+    height: 20px;
+    stroke: #B926FF;
+}
+
+.container main .nav_bottom ul a p {
+    font-size: 12px;
+    color: #0A0E1A;
+}
+
+.container main .nav_bottom ul a:nth-child(3) svg {
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #B926FF;
+    stroke: #fff;
+    width: 35px;
+    height: 35px;
+}
+
+/*Trade Section Part Design Starts Here*/
+
+.container main .trade_nav .first ul {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.container main .trade_nav .first ul a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #0A0E1A;
+}
+
+.container main .trade_nav .first ul svg {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.container main .trade_nav .first ul a:nth-child(1) {
+    margin-right: 10px;
+}
+
+.container main .trade_nav .first p {
+    font-size: 13px;
+}
+
+.container main .trade_nav .second .search {
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.container main .trade_nav .second .search input {
+    border: none;
+    outline: none;
+    padding: 8px;
+    background: transparent;
+    border-radius: 6px;
+    font-size: 13px;
+    width: 100%;
+}
+
+.container main .trade_nav .second .search svg {
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+.container main .trade_nav .second #add {
+    background-color: #ddd;
+    font-size: 13px;
+    color: #0A0E1A;
+}
+
+.container main .trade_nav .second #add svg {
+    width: 20px;
+    height: 20px;
+}
+
+.container main .trade_nav .second #add p {
+    font-size: 13px;
+}
+
+.container main .trade_section {
+    margin-top: 80px;
+    padding-bottom: 100px;
+    padding: 10px;
+}
+
+.container main .trade_section .feature_section {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 5px;
+}
+
+.container main .trade_section .feature_section .card {
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.container main .trade_section .feature_section .card p {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.container main .trade_section .feature_section .card .best {
+    color: green;
+}
+
+.container main .trade_section .feature_section .card h5 {
+    margin-bottom: 5px;
+    font-weight: 900;
+    font-size: 17px;
+}
+
+.container main .trade_section .feature_section .card p svg {
+    margin-right: 10px;
+}
+
+.container main .trade_section .feature_section .feature1 p svg {
+    stroke: orangered;
+}
+
+.container main .trade_section .feature_section .feature2 p svg {
+    stroke: var(--accent_purple);
+}
+
+.container main .trade_section .feature_section .feature3 p svg {
+    stroke: var(--accent_green);
+}
+
+.container main .trade_section .feature_section .feature4 p svg {
+    stroke: var(--accent_purple);
+}
+
+.container main .trade_section .all_trade_section{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.container main .trade_section .all_trade_section .all_trades{
+    grid-column: 1 / 6;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trades_header{
+    margin-bottom: 15px;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trades_header ul{
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trades_header hr{
+    border: 1px solid #ddd;
+    margin-bottom: 8px;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trades_header ul a{
+    text-decoration: none;
+    color: #0A0E1A;
+    margin-right: 15px;
+    font-size: 13px;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trades_header .sorter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trades_header .sorter  .first{
+    display: flex;
+    align-items: center;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trades_header .sorter .first a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 11px;
+    color: #0A0E1A;
+    padding: 8px;
+    background: #ddd;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trades_header .sorter .first a svg{
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trades_header .sorter .first p{
+    font-size: 13px;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trades_header .sorter .second {
+    display: flex;
+    align-items: center;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trades_header .sorter .second a{
+    text-decoration: none;
+    font-size: 12px;
+    color: #0A0E1A;
+    margin-right: 8px;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trades_header .sorter .second a:nth-child(1){
+    padding: 8px;
+    background: #ddd;
+    border-radius: 6px;
+    font-size: 11px;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trade_content table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trade_content table th{
+    background-color: #ddd;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trade_content table tbody tr #actions{
+    display: flex;
+    align-items: center;
+    border-collapse: collapse;
+    border: none;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trade_content table tbody tr #actions svg:nth-child(1){
+    margin-right: 20px;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trade_content table tbody tr #actions svg{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.container main .trade_section .all_trade_section .all_trades .trade_content table th, td{
+    padding: 12px 12px;
+    width: auto;
+    font-size: 12px;
+    text-align: center;
+}
+
+.container main .trade_section .all_trade_section .trade_summary {
+    border-radius: 6px;
+    grid-column: 6 / 8;
+    height: auto;
+    align-self: flex-start;
+}
+
+.container main .trade_section .all_trade_section .trade_summary p{
+    font-size: 12px;
+    color: var(--accent_purple);
+}
+
+.container main .trade_section .all_trade_section .trade_summary .quick_summary{
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.container main .trade_section .all_trade_section .trade_summary .quick_summary h5{
+    margin-bottom: 10px;
+}
+
+.container main .trade_section .all_trade_section .trade_summary .quick_summary ul li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container main .trade_section .all_trade_section .trade_summary .quick_summary ul li p{
+    display: flex;
+    align-items: center;
+    color: #0A0E1A;
+}
+
+.container main .trade_section .all_trade_section .trade_summary .quick_summary ul li p svg{
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+
+.container main .trade_section .all_trade_section .trade_summary .quick_summary ul li p strong{
+    font-size: 10px;
+}
+
+@media (max-width: 1250px){
+    .container header{
+        display: none;
+    }
+
+    .container main {
+        margin-left: 0%;
+        width: 100%;
+    }
+
+    .container main nav{
+        width: 100%;
+    }
+
+    .container main .trade_section {
+        padding: 0px;
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 900px) {
+    .container main nav .second {
+        display: none;
+    }
+
+    .container main .trade_section .feature_section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .container main .trade_section .all_trade_section .all_trades {
+        grid-column: 1 / 8;
+    }
+
+    .container main .trade_section .all_trade_section .trade_summary {
+        grid-column: 1 / 8;
+    }
+
+}
+
+@media (max-width: 600px){
+    .container main .trade_section .all_trade_section .all_trades .trade_content table thead tr th:nth-child(6) {
+        display: none;
+    }
+    
+    .container main .trade_section .all_trade_section .all_trades .trade_content table tbody tr td:nth-child(6) {
+        display: none;
+    }
+
+
+    .container main .trade_section .feature_section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container main .nav_bottom {
+        display: block;
+    }
+    
+}
+
+
+@media (max-width: 500px) {
+    .container main .trade_section .all_trade_section .all_trades .trade_content table thead tr th:nth-child(3), th:nth-child(4){
+            display: none;
+        }
+    
+    .container main .trade_section .all_trade_section .all_trades .trade_content table tbody tr td:nth-child(3), td:nth-child(4) {
+        display: none;
+    }
+
+    .container main .trade_section .all_trade_section .all_trades .trades_header .sorter .second a:nth-child(1) {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .container main .trade_section .all_trade_section .all_trades .trade_content table thead tr th:nth-child(2) {
+            display: none;
+    }
+        
+    .container main .trade_section .all_trade_section .all_trades .trade_content table tbody tr td:nth-child(2) {
+        display: none;
+    }
+
+    .container main .trade_section {
+        margin-top: 120px;
+    }
+}

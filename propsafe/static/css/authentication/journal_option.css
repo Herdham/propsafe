@@ -1,0 +1,68 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --primary_background: #0A0E1A;
+    --card_background: rgba(225, 255, 255, 0.04);
+    --border: rgba(225, 255, 255, 0.06);
+    --text_primary: #ffffff;
+    --text_secondary: #8892B0;
+    --accent_purple: #B926FF;
+    --accent_green: #00F5A0;
+    --danger_red: #FF4D6D;
+    --box_shadow: rgba(0, 0, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.journal_container{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary_background);
+}
+
+.journal_container form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.journal_container form p{
+    margin-bottom: 8px;
+    color: var(--text_secondary);
+    font-size: 13px;
+}
+
+.journal_container form .manual, .connect_mt5{
+    display: flex;
+    align-items: center;
+}
+
+.journal_container form .manual input, .connect_mt5 input{
+    margin-right: 10px;
+}
+
+.journal_container form .manual p, .connect_mt5 p{
+    margin-top: 8px;
+}
+
+.journal_container form input[type="submit"]{
+    border: none;
+    outline: none;
+    padding: 8px;
+    border-radius: 5px;
+    width: 100%;
+    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    color: var(--text_primary);
+    cursor: pointer;
+}

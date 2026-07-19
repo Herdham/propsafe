@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropSafe</title>
+    <link rel="stylesheet" href="{% static 'css/authentication/journal_option.css' %}">
+</head>
+<body>
+    <div class="journal_container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Welcome to PropSafe🎉</p>
+            <p>Let's personalize your experience.</p>
+            <p>How would you like to use PropSafe</p>
+            <div class="manual">
+                <input type="radio" name="connection_type" value="manual">
+                <p>Manual Journal</p>
+            </div>
+            <p>Perfect if your prefer entering your trades yourself.</p>
+            <div class="connect_mt5">
+                <input type="radio" name="connection_type" value="mt5">
+                <p>Connect MT5</p>
+            </div>
+            <p>Automatically import your trades and reduce manual work.</p>
+            <input type="submit" value="Continue">
+        </form>
+    </div>
+</body>
+</html>

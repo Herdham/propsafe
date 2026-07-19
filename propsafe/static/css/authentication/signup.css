@@ -1,0 +1,246 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --primary_background: #0A0E1A;
+    --card_background: rgba(225, 255, 255, 0.04);
+    --border: rgba(225, 255, 255, 0.06);
+    --text_primary: #ffffff;
+    --text_secondary: #8892B0;
+    --accent_purple: #B926FF;
+    --accent_green: #00F5A0;
+    --danger_red: #FF4D6D;
+    --box_shadow: rgba(0, 0, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--primary_background);
+    width: 100%;
+    height: 100vh;
+}
+
+/* Signup_Popup CSS Styling */
+
+.signup_popup {
+    background-color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    padding: 10px;
+    overflow: auto;
+}
+
+
+.signup_popup #signupclosebtn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.signup_popup #signupclosebtn svg {
+    padding: 8px;
+    background-color: var(--text_primary);
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.signup_popup .popup_body {
+    width: 400px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.signup_popup .popup_body h4 {
+    text-align: center;
+    color: var(--text_primary);
+}
+
+.signup_popup .popup_body p {
+    text-align: center;
+    color: var(--text_primary);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.signup_popup .popup_body .input {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup_popup .popup_body .input label {
+    color: var(--text_secondary);
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.signup_popup .popup_body .bothname {
+    display: flex;
+    align-items: center;
+}
+
+.signup_popup .popup_body .bothname #firstname {
+    margin-right: 10px;
+}
+
+.signup_popup .popup_body .bothname label {
+    color: var(--text_secondary);
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.signup_popup .popup_body .bothname input[type="text"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    color: var(--text_secondary);
+    margin-bottom: 10px;
+}
+
+.signup_popup .popup_body .bothname #firstname {
+    margin-right: 8px;
+}
+
+.signup_popup .popup_body .input input[type="text"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    color: var(--text_secondary);
+    margin-bottom: 10px;
+}
+
+.signup_popup .popup_body .input input[type="password"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: var(--text_secondary);
+}
+
+.signup_popup .popup_body .signup_checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.signup_popup .popup_body .signup_checkbox .check {
+    display: flex;
+    align-items: center;
+}
+
+.signup_popup .popup_body .signup_checkbox .check input[type="checkbox"] {
+    margin-right: 8px;
+    border-radius: 5px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+}
+
+.signup_popup .popup_body .signup_checkbox .check p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.signup_popup .popup_body .signup_checkbox a {
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--accent_purple);
+}
+
+/* terms */
+
+.signup_popup .popup_body .termsbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signup_popup .popup_body .termsbox .check {
+    display: flex;
+    align-items: center;
+}
+
+.signup_popup .popup_body .termsbox .check input[type="checkbox"] {
+    margin-right: 8px;
+    border-radius: 5px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    outline: none;
+}
+
+.signup_popup .popup_body .termsbox .check p {
+    margin-top: 10px;
+}
+
+.signup_popup .popup_body .termsbox a {
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--accent_purple);
+}
+
+.signup_popup .popup_body input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 6px;
+}
+
+.signup_popup p a {
+    text-decoration: none;
+    color: var(--accent_purple);
+}
+
+.signup_popup #emailerror {
+    color: red;
+    text-align: left;
+}
+
+.signup_popup #error {
+    color: red;
+    text-align: center;
+}
+
+.signup_popup #usernameerror {
+    color: red;
+    text-align: left;
+}
+
+@media (max-width: 400px) {
+    .signup_popup .popup_body {
+        width: 300px;
+    }
+
+}
+
+/* Signup_Popup CSS Styling End here */

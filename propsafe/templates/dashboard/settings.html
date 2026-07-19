@@ -1,0 +1,161 @@
+{% extends "dashboard/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+    <title>PropSafe Profile</title>
+{% endblock title %}
+
+{% block content %}
+    <main class="main_setting">
+        <h3>Update Profile</h3>
+
+        <div class="setting_section_info">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="Email">Email</label>
+                    <input type="text" value="{{user.email}}" placeholder="email" readonly>
+                </div>
+                <div>
+                    <label for="Phone">Phone</label>
+                    <input type="text" value="{{profile.phone_number|default:''}}" name="phone_number" placeholder="phone number">
+                </div>
+                <div>
+                    <label for="Timezone">Timezone</label>
+                    <select name="timezone" id="">
+                        <option disabled selected>{{profile.timezone|default:''}}</option>
+                        <option value="(GMT+1) West African Time">(GMT+1) West African Time</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="bio">
+                    <label for="Bio">Bio</label>
+                    <textarea name="bio" placeholder="Tell us about yourself" id="">{{profile.bio|default:''}}</textarea>
+                </div>
+                <div>
+                    <label for="Location">Location</label>
+                    <select name="location" id="">
+                        <option disabled selected>{{profile.country|default:'Select country'}}</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="Australia">Australia</option>
+                        <option value="USA">USA</option>
+                        <option value="Netherland">Netherland</option>
+                        <option value="American">American</option>
+                    </select>
+                </div>
+                <hr>
+                <div>
+                    <label for="Trading Experience">Trading Experience</label>
+                    <input type="text" value="{{profile.experience_level|default:''}}" name="experience" placeholder="trading experience">
+                </div>
+                <div>
+                    <label for="Preferred Market">Preferred Market</label>
+                    <select name="market" id="">
+                        <option disabled selected>{{profile.preferred_market|default:'Select preferred market'}}</option>
+                        <option value="Forex">Forex</option>
+                        <option value="Indices">Indices</option>
+                        <option value="Crypto">Crypto</option>
+                        <option value="Commodities">Commodities</option>
+                        <option value="Stocks">Stocks</option>
+                        <option value="Futures">Futures</option>
+                        <option value="Options">Options</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Favourite Pair">Favourite Pair</label>
+                    <select name="instrument" id="">
+                        <option disabled selected>{{profile.favourite_pair|default:'Select Favourite pair'}}</option>
+                        <option value="EURUSD">EURUSD</option>
+                        <option value="GBPUSD">GBPUSD</option>
+                        <option value="XAUUSD">XAUUSD</option>
+                        <option value="XAGUSD">XAGUSD</option>
+                        <option value="USDJPY">USDJPY</option>
+                        <option value="USDCHF">USDCHF</option>
+                        <option value="USDCAD">USDCAD</option>
+                        <option value="AUDUSD">AUDUSD</option>
+                        <option value="NZDUSD">NZDUSD</option>
+                        <option value="EURGBP">EURGBP</option>
+                        <option value="EURJPY">EURJPY</option>
+                        <option value="GBPJPY">GBPJPY</option>
+                        <option value="NAS100">NAS100</option>
+                        <option value="US30">US30</option>
+                        <option value="SPX500">SPX500</option>
+                        <option value="GER40">GER40</option>
+                        <option value="UK100">UK100</option>
+                        <option value="USOIL">USOIL</option>
+                        <option value="UKOIL">UKOIL</option>
+                        <option value="BTCUSD">BTCUSD</option>
+                        <option value="ETHUSD">ETHUSD</option>
+                        <option value="SOLUSD">SOLUSD</option>
+                    </select>
+                </div>
+                <hr>
+                <div>
+                    <label for="Risk Per Trade">Risk Per Trade</label>
+                    <input type="text" value="{{profile.risk_per_trade|default:''}}" name="risk_per_trade" placeholder="risk per trade">
+                </div>
+                <div>
+                    <label for="Daily Goal">Daily Goal</label>
+                    <input type="text" value="{{profile.daily_profit_target|default:''}}" name="daily_goal" placeholder="daily goal">
+                </div>
+                <div>
+                    <label for="Account Size">Account Size</label>
+                    <input type="text" value="{{profile.account_size|default:''}}" name="account_size" placeholder="account_size">
+                </div>
+                <button type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                    </svg>
+                    <p>Update Profile</p>
+                </button>
+            </form>
+        </div>
+
+        <div class="nav_bottom">
+            <ul>
+                <a href="{% url 'trading:prop_dashboard' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                    </svg>
+                    <p>Dashboard</p>
+                </a>
+                <a href="{% url 'trading:trades' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 8.25.22-.22a.75.75 0 0 1 1.28.53v6.441c0 .472.214.934.64 1.137a3.75 3.75 0 0 0 4.994-1.77c.205-.428-.152-.868-.627-.868h-.507m-6-2.25h7.5M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                    </svg>
+                    <p>Trades</p>
+                </a>
+                <a href="{% url 'trading:new_trade' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                    </svg>
+                    <p>Analytics</p>
+                </a>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                    <p>Profile</p>
+                </a>
+            </ul>
+        </div>
+    </main>
+{% endblock content %}

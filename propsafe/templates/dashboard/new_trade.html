@@ -1,0 +1,488 @@
+{% extends "dashboard/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+<title>PropSafe New Trade</title>
+{% endblock title %}
+
+{% block content %}
+<main>
+    <nav class="newtrade_nav">
+        <div class="first">
+            <ul>
+                <a href="{% url 'trading:trades' %}">Trades</a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+                <a href="{% url 'trading:new_trade' %}">New Trade</a>
+            </ul>
+
+            <h3>New Trade</h3>
+            <p>Log your trade details, Be honest, be consistent, get better.</p>
+        </div>
+        <div class="second">
+            <a href="{% url 'trading:prop_dashboard' %}" id="cancle">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+                <p>Cancle</p>
+            </a>
+        </div>
+    </nav>
+
+    <section class="newtrade_section">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="newtrade_form">
+
+                <div class="trade_setup">
+                    <h4>1. Trade Setup</h4>
+                    <div class="trade_setup_input">
+                        <div>
+                            <label for="instrument_or_pair">Instrument / Pair</label>
+                            <select name="instrument" id="instrument" required>
+                                <option disabled selected>Select Instrument</option>
+                                <option value="EURUSD">EURUSD</option>
+                                <option value="GBPUSD">GBPUSD</option>
+                                <option value="XAUUSD">XAUUSD</option>
+                                <option value="XAGUSD">XAGUSD</option>
+                                <option value="USDJPY">USDJPY</option>
+                                <option value="USDCHF">USDCHF</option>
+                                <option value="USDCAD">USDCAD</option>
+                                <option value="AUDUSD">AUDUSD</option>
+                                <option value="NZDUSD">NZDUSD</option>
+                                <option value="EURGBP">EURGBP</option>
+                                <option value="EURJPY">EURJPY</option>
+                                <option value="GBPJPY">GBPJPY</option>
+                                <option value="NAS100">NAS100</option>
+                                <option value="US30">US30</option>
+                                <option value="SPX500">SPX500</option>
+                                <option value="GER40">GER40</option>
+                                <option value="UK100">UK100</option>
+                                <option value="USOIL">USOIL</option>
+                                <option value="UKOIL">UKOIL</option>
+                                <option value="BTCUSD">BTCUSD</option>
+                                <option value="ETHUSD">ETHUSD</option>
+                                <option value="SOLUSD">SOLUSD</option>
+                            </select>
+                        </div>
+                        <div id="market_direction">
+                            <label for="direction">Direction (Pick one of this for your R:R to be calculated automatically)</label>
+                            <ul class="direction">
+                                <label for="buy">
+                                    <input type="radio" name="direction" value="buy" id="buy">
+                                    <p>Buy</p>
+                                </label>
+                                <label for="sell">
+                                    <input type="radio" name="direction" value="sell" id="sell">
+                                    <p>Sell</p>
+                                </label>
+                            </ul>
+                        </div>
+                        <div>
+                            <label for="market">Market</label>
+                            <select name="market" id="" required>
+                                <option disabled selected>Select Market</option>
+                                <option value="Forex">Forex</option>
+                                <option value="Indices">Indices</option>
+                                <option value="Crypto">Crypto</option>
+                                <option value="Commodities">Commodities</option>
+                                <option value="Stocks">Stocks</option>
+                                <option value="Futures">Futures</option>
+                                <option value="Options">Options</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Entry Price">Entry Price</label>
+                            <input type="number" name="entry_price" step="any" placeholder="0.00" id="entry_price" autocomplete="off" required>
+                        </div>
+                        <div>
+                            <label for="Exit Price">Exit Price</label>
+                            <input type="number" name="exit_price" step="any" placeholder="0.00" id="exit_price" autocomplete="off" required>
+                        </div>
+                        <div>
+                            <label for="position">Position Size</label>
+                            <input type="number" name="position_size" step="0.01" placeholder="0.00" id="position_size" autocomplete="off">
+                        </div>
+                        <div>
+                            <label for="Leverage">Leverage</label>
+                            <select name="leverage" id="" required>
+                                <option disabled selected>Select Leverage</option>
+                                <option value="1:10">1:10</option>
+                                <option value="1:20">1:20</option>
+                                <option value="1:30">1:30</option>
+                                <option value="1:50">1:50</option>
+                                <option value="1:100">1:100</option>
+                                <option value="1:200">1:200</option>
+                                <option value="1:500">1:500</option>
+                                <option value="1:1000">1:1000</option>
+                            </select>
+                        </div>
+                        <div class="riskpertrade">
+                            <label for="Risk Percent">Risk Percent</label>
+                            <input type="number" name="risk_per_trade" step="0.1" placeholder="0.00" id="riskpertrade" autocomplete="off" required>
+                        </div>
+                        <div class="account_size">
+                            <label for="Account">Account</label>
+                            <input type="number" name="account_size" step="any" placeholder="0.00" id="account_size" autocomplete="off" required>
+                        </div>
+                        <div class="Profit/Loss">
+                            <label for="pnl">Profit/Loss (PnL)</label>
+                            <input type="number" name="profit_and_loss" step="any" placeholder="0.00" id="profit_and_loss" autocomplete="off" required>
+                        </div>
+                        <div class="profitPercent">
+                            <label for="Profit%">Profit%</label>
+                            <input type="text" name="profit_percent" step="any" placeholder="0.00" id="profit_percent" autocomplete="off" readonly>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <h4>2. Trade Management</h4>
+                    <div class="trade_setup_input">
+                        <div>
+                            <label for="StopLoss">Stop Loss</label>
+                            <input type="number" name="stop_loss" step="any" placeholder="0.00" id="stop_loss" autocomplete="off" required>
+                        </div>
+                        <div>
+                            <label for="TakeProfit">Take Profit</label>
+                            <input type="number" name="take_profit" step="any" placeholder="0.00" id="take_profit" autocomplete="off" required>
+                        </div>
+                        <div class="risktoreward">
+                            <label for="R:R">R:R</label>
+                            <input type="text" name="risktoreward" step="0.01" placeholder="0.00" id="risktoreward" autocomplete="off" readonly>
+                        </div>
+                        <div>
+                            <label for="riskAmount">Risk Amount</label>
+                            <input type="text" name="risk_amount" placeholder="0.00" id="risk_amount" autocomplete="off" readonly>
+                        </div>
+                        <div>
+                            <label for="potentialReward">Potential Reward</label>
+                            <input type="number" name="potential_reward" placeholder="0.00" id="" autocomplete="off" required>
+                        </div>
+                        <div>
+                            <label for="expectedOutcome">Expected Outcome</label>
+                            <select name="expected_outcome" id="" required>
+                                <option disabled selected>Select Outcome</option>
+                                <option value="Break Resistance">Break Resistance</option>
+                                <option value="Retest order block">Retest order block</option>
+                                <option value="Liquidity Sweep">Liquidity Sweep</option>
+                                <option value="Continuation">Continuation</option>
+                                <option value="CHOCH">CHOCH</option>
+                                <option value="Reversal">Reversal</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="actualOutcome">Actual Outcome</label>
+                            <select name="actual_outcome" id="" required>
+                                <option disabled selected>Select Outcome</option>
+                                <option value="TP Hit">TP Hit</option>
+                                <option value="SL Hit">SL Hit</option>
+                                <option value="Manual Close">Manual Close</option>
+                                <option value="Breakeven">Breakeven</option>
+                                <option value="Stopped Early">Stopped Early</option>
+                                <option value="Closed Half Position">Closed Half Position</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Results">Result</label>
+                            <ul class="result">
+                                <label for="win">
+                                    <input type="radio" name="result" value="win" id="win">
+                                    <p>Win</p>
+                                </label>
+                                <label for="loss">
+                                    <input type="radio" name="result" value="loss" id="loss">
+                                    <p>Loss</p>
+                                </label>
+                            </ul>
+                        </div>
+                        <div>
+                            <label for="Status">Status</label>
+                            <ul class="status">
+                                <label for="win">
+                                    <input type="radio" name="status" value="Open" id="open">
+                                    <p>Open</p>
+                                </label>
+                                <label for="loss">
+                                    <input type="radio" name="status" value="Closed" id="close">
+                                    <p>Closed</p>
+                                </label>
+                                <label for="breakeven">
+                                    <input type="radio" name="status" value="BreakEven" id="breakeven">
+                                    <p>BreakEven</p>
+                                </label>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <h4>3. Trade Details</h4>
+                    <div class="trade_setup_input">
+                        <div>
+                            <label for="Setup / Strategy">Setup / Strategy</label>
+                            <select name="setup" id="" required>
+                                <option disabled selected>Select Setup</option>
+                                <option value="SMC">SMC</option>
+                                <option value="ICT">ICT</option>
+                                <option value="Breakout">Breakout</option>
+                                <option value="Retest">Retest</option>
+                                <option value="Trend Following">Trend Following</option>
+                                <option value="Liquidity Sweep">Liquidity Sweep</option>
+                                <option value="Order Block">Order Block</option>
+                                <option value="Fair Value Gap">Fair Value Gap</option>
+                                <option value="Support & Resistence">Support & Resistence</option>
+                                <option value="Scalping">Scalping</option>
+                                <option value="Swing Trade">Swing Trade</option>
+                                <option value="News Trade">News Trade</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Timeframe">Timeframe</label>
+                            <select name="timeframe" id="" required>
+                                <option disabled selected>Select Timeframe</option>
+                                <option value="M1">M1</option>
+                                <option value="M5">M5</option>
+                                <option value="M15">M15</option>
+                                <option value="M30">M30</option>
+                                <option value="H1">H1</option>
+                                <option value="H4">H4</option>
+                                <option value="D1">D1</option>
+                                <option value="W1">W1</option>
+                                <option value="MN">MN</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Session">Session</label>
+                            <select name="session" id="" required>
+                                <option disabled selected>Select Session</option>
+                                <option value="Sydney">Sydney</option>
+                                <option value="Tokyo">Tokyo</option>
+                                <option value="London">London</option>
+                                <option value="New York">New York</option>
+                                <option value="London/New York Overlap">London/New York Overlap</option>
+                                <option value="After Hours">After Hours</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="dateTime">Date & Time</label>
+                            <input type="datetime-local" name="date_time" id="" required>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <h4>Trade Notes</h4>
+                    <div class="trade_setup_input">
+                        <div id="note">
+                            <label for="notes">Trade Notes</label>
+                            <textarea name="trade_note" id="" placeholder="What was you plan? What happened? Any key observations?"></textarea>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <h4>4. Emotional & Psychological State</h4>
+                    <div class="trade_setup_input">
+                        <div>
+                            <label for="Emotion Before">Emotion Before Trade</label>
+                            <select name="emotion_before" id="" required>
+                                <option disabled selected>Select emotion😒</option>
+                                <option value="😊 Confident">😊 Confident</option>
+                                <option value="🤨 Calm">🤨 Calm</option>
+                                <option value="😐 Neutral">😐 Neutral</option>
+                                <option value="😰 FearFul">😰 FearFul</option>
+                                <option value="😡 Angry">😡 Angry</option>
+                                <option value="🤧 Revenge">🤧 Revenge</option>
+                                <option value="🤩 Excited">🤩 Excited</option>
+                                <option value="😴 Tired">😴 Tired</option>
+                                <option value="🤔 Unsure">🤔 Unsure</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Emotion During">Emotion During Trade</label>
+                            <select name="emotion_during" id="" required>
+                                <option disabled selected>Select emotion😒</option>
+                                <option value="😊 Confident">😊 Confident</option>
+                                <option value="🤨 Calm">🤨 Calm</option>
+                                <option value="😐 Neutral">😐 Neutral</option>
+                                <option value="😰 FearFul">😰 FearFul</option>
+                                <option value="😡 Angry">😡 Angry</option>
+                                <option value="🤧 Revenge">🤧 Revenge</option>
+                                <option value="🤩 Excited">🤩 Excited</option>
+                                <option value="😴 Tired">😴 Tired</option>
+                                <option value="🤔 Unsure">🤔 Unsure</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Emotion After">Emotion After Trade</label>
+                            <select name="emotion_after" id="" required>
+                                <option disabled selected>Select emotion😒</option>
+                                <option value="😊 Confident">😊 Confident</option>
+                                <option value="🤨 Calm">🤨 Calm</option>
+                                <option value="😐 Neutral">😐 Neutral</option>
+                                <option value="😰 FearFul">😰 FearFul</option>
+                                <option value="😡 Angry">😡 Angry</option>
+                                <option value="🤧 Revenge">🤧 Revenge</option>
+                                <option value="🤩 Excited">🤩 Excited</option>
+                                <option value="😴 Tired">😴 Tired</option>
+                                <option value="🤔 Unsure">🤔 Unsure</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <h4>Lesson Learnt</h4>
+                    <div class="trade_setup_input">
+                        <div id="lesson">
+                            <label for="lessons">Lesson Learned</label>
+                            <textarea name="trade_lesson" id="" placeholder="What did you learn from this trade?"></textarea>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <h4>5. Attachments(Optional)</h4>
+                    <div class="trade_setup_input">
+                        <div class="attachment">
+                            <p>Click the icon below to upload chart screenshot, exit screenshot or any other image</p>
+                            <p>PNG, JPG up to 5MB</p>
+                            <label for="upload">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                    class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                                </svg>
+                            </label>
+                            <input style="display: none;" type="file" name="upload_file" id="upload">
+                            <textarea name="caption" placeholder="caption" autocomplete="off" id=""></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="trade_options">
+                <div class="trade_summary">
+                    <h4>Trade Summary</h4>
+                    <ul>
+                        <li><p>Instrument</p><p> - </p></li>
+                        <li><p>Direction</p><p id="direction_update"> - </p></li>
+                        <li><p>Entry Price</p><p id="entry_price_update"> - </p></li>
+                        <li><p>Exit Price</p><p id="exit_price_update"> - </p></li>
+                        <li><p>Position Size</p><p id="position_update"> - </p></li>
+                        <li><p>R:R</p><p id="r_r_update"> - </p></li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li><p>Stop Loss</p><p> - </p></li>
+                        <li><p>Take Profit</p><p> - </p></li>
+                        <li><p>Risk Amount</p><p> - </p></li>
+                        <li><p>Pontential Reward</p><p> - </p></li>
+                        <li><p>Result</p><p> - </p></li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li><p>Expected Outcome</p><p> - </p></li>
+                        <li><p>Actual Outcome</p><p> - </p></li>
+                        <li><p>P&L</p><p> - </p></li>
+                        <li><p>P&L(%)</p><p> - </p></li>
+                    </ul>
+                </div>
+
+                <div class="risk_calculator">
+                    <h4>Risk Calculator</h4>
+                    <div>
+                        <label for="account">Account Balance</label>
+                        <input type="number" step="any" name="account" placeholder="0.00" id="account_balance" autocomplete="off">
+                    </div>
+                    <div>
+                        <label for="R:R">Risk Percent</label>
+                        <input type="number" step="any" name="" id="risk_percentage">
+                    </div>
+                    <ul>
+                        <li><p>Risk Amount</p><strong id="risk_result">$0.00</strong></li>
+                    </ul>
+                </div>
+
+                <div class="checklist">
+                    <h4>Checklist</h4>
+                    <p>Before Entry</p>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name="follow_plan" value="true" id="">
+                            <p>Followed Trading Plan</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="confirmation" value="true" id="">
+                            <p>Waited for confirmation</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" value="true" name="risk" id="">
+                            <p>Risk <= 1%</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" value="true" name="revenge" id="">
+                            <p>No Revenge Trading</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" value="true" name="fomo" id="">
+                            <p>No FOMO</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" value="true" name="news" id="">
+                            <p>News Checked</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <input type="submit" value="Log trade">
+            </div>
+        </form>
+    </section>
+
+    <div class="nav_bottom">
+        <ul>
+            <a href="{% url 'trading:prop_dashboard' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                </svg>
+                <p>Dashboard</p>
+            </a>
+            <a href="{% url 'trading:trades' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 8.25.22-.22a.75.75 0 0 1 1.28.53v6.441c0 .472.214.934.64 1.137a3.75 3.75 0 0 0 4.994-1.77c.205-.428-.152-.868-.627-.868h-.507m-6-2.25h7.5M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                </svg>
+                <p>Trades</p>
+            </a>
+            <a href="{% url 'trading:new_trade' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+            </a>
+            <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                </svg>
+                <p>Analytics</p>
+            </a>
+            <a href="{% url 'account:profile' profile.id %}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+                <p>Profile</p>
+            </a>
+        </ul>
+    </div>
+</main>
+{% endblock content %}

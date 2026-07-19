@@ -1,0 +1,1188 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --primary_background: #0A0E1A;
+    --card_background: rgba(225, 255, 255, 0.04);
+    --border: rgba(225, 255, 255, 0.06);
+    --text_primary: #ffffff;
+    --text_secondary: #8892B0;
+    --accent_purple: #B926FF;
+    --accent_green: #00F5A0;
+    --danger_red: #FF4D6D;
+    --box_shadow: rgba(0, 0, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--primary_background);
+    width: 100%;
+    height: 100vh;
+}
+
+nav {
+    background-color: var(--primary_background);
+    padding: 8px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    color: var(--text_primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .first {
+    display: flex;
+    align-items: center;
+}
+
+nav .first svg {
+    margin-right: 10px;
+    stroke-width: 2px;
+    stroke: #B926FF;
+}
+
+nav .second ul {
+    display: flex;
+    align-items: center;
+}
+
+nav .second ul li {
+    list-style: none;
+    margin-right: 15px;
+}
+
+nav .second ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav .third {
+    display: flex;
+    align-items: center;
+}
+
+nav .third button {
+    border: none;
+    outline: none;
+    padding: 8px;
+    border-radius: 5px;
+    background: linear-gradient(320deg, var(--accent_green), var(--accent_purple));
+    color: var(--text_primary);
+    width: 100px;
+    cursor: pointer;
+    white-space: nowrap;
+    width: 100%;
+    margin-right: 10px;
+}
+
+main {
+    margin-top: 70px;
+    position: relative;
+}
+
+/* Login_Popup CSS Styling */
+
+svg {
+    width: 25px;
+    height: 25px;
+}
+
+.login_popup {
+    background-color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity .3s;
+    visibility: hidden;
+}
+
+.login_popup.show {
+    opacity: 1;
+    transition: opacity .3s;
+    visibility: visible;
+}
+
+
+.login_popup #loginclosebtn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login_popup #loginclosebtn svg {
+    padding: 8px;
+    background-color: var(--text_primary);
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.login_popup .popup_body {
+    width: 400px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.login_popup .popup_body h4 {
+    text-align: center;
+    color: #fff;
+}
+
+.login_popup .popup_body p {
+    text-align: center;
+    color: var(--text_primary);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.login_popup .popup_body .input {
+    display: flex;
+    flex-direction: column;
+}
+
+.login_popup .popup_body .input label {
+    color: var(--text_secondary);
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.login_popup .popup_body .input input[type="text"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    color: var(--text_secondary);
+    margin-bottom: 10px;
+}
+
+.login_popup .popup_body .input input[type="password"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: var(--text_secondary);
+}
+
+.login_popup .popup_body .login_checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login_popup .popup_body .login_checkbox .check {
+    display: flex;
+    align-items: center;
+}
+
+.login_popup .popup_body .login_checkbox .check input[type="checkbox"] {
+    margin-right: 8px;
+    border-radius: 5px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    outline: none;
+}
+
+.login_popup .popup_body .login_checkbox .check p {
+    margin-top: 10px;
+}
+
+.login_popup .popup_body .login_checkbox a {
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--accent_purple);
+}
+
+.login_popup .popup_body input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 6px;
+}
+
+.login_popup p a {
+    text-decoration: none;
+    color: var(--accent_purple);
+}
+
+/* Login_Popup CSS Styling End here */
+
+/* Signup_Popup CSS Styling */
+
+.signup_popup {
+    background-color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity .3s;
+    visibility: hidden;
+    overflow: auto;
+}
+
+.signup_popup.show {
+    opacity: 1;
+    transition: opacity .3s;
+    visibility: visible;
+}
+
+
+.signup_popup #signupclosebtn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.signup_popup #signupclosebtn svg {
+    padding: 8px;
+    background-color: var(--text_primary);
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.signup_popup .popup_body {
+    width: 400px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.signup_popup .popup_body h4 {
+    text-align: center;
+    color: #fff;
+}
+
+.signup_popup .popup_body p {
+    text-align: center;
+    color: var(--text_primary);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.signup_popup .popup_body .input {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup_popup .popup_body .input label {
+    color: var(--text_secondary);
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.signup_popup .popup_body .bothname {
+    display: flex;
+    align-items: center;
+}
+
+.signup_popup .popup_body .bothname #firstname {
+    margin-right: 10px;
+}
+
+.signup_popup .popup_body .bothname label {
+    color: var(--text_secondary);
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.signup_popup .popup_body .bothname input[type="text"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    color: var(--text_secondary);
+    margin-bottom: 10px;
+}
+
+.signup_popup .popup_body .bothname #firstname {
+    margin-right: 8px;
+}
+
+.signup_popup .popup_body .input input[type="text"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    color: var(--text_secondary);
+    margin-bottom: 10px;
+}
+
+.signup_popup .popup_body .input input[type="password"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: var(--text_secondary);
+}
+
+.signup_popup .popup_body .signup_checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signup_popup .popup_body .signup_checkbox .check {
+    display: flex;
+    align-items: center;
+}
+
+.signup_popup .popup_body .signup_checkbox .check input[type="checkbox"] {
+    margin-right: 8px;
+    border-radius: 5px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    outline: none;
+}
+
+.signup_popup .popup_body .signup_checkbox .check p {
+    margin-top: 10px;
+}
+
+.signup_popup .popup_body .signup_checkbox a {
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--accent_purple);
+}
+
+/* terms */
+
+.signup_popup .popup_body .termsbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signup_popup .popup_body .termsbox .check {
+    display: flex;
+    align-items: center;
+}
+
+.signup_popup .popup_body .termsbox .check input[type="checkbox"] {
+    margin-right: 8px;
+    border-radius: 5px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    outline: none;
+}
+
+.signup_popup .popup_body .termsbox .check p {
+    margin-top: 10px;
+}
+
+.signup_popup .popup_body .termsbox a {
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--accent_purple);
+}
+
+.signup_popup .popup_body input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 6px;
+}
+
+.signup_popup p a {
+    text-decoration: none;
+    color: var(--accent_purple);
+}
+
+.signup_popup #emailerror {
+    display: none;
+    color: red;
+    text-align: left;
+}
+
+.signup_popup #usernameerror {
+    display: none;
+    color: red;
+    text-align: left;
+}
+
+/* Signup_Popup CSS Styling End here */
+
+/* Forget_Popup CSS Styling */
+
+.forget_popup {
+    background-color: rgba(0, 0, 0, 1);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity .3s;
+    visibility: hidden;
+}
+
+.forget_popup.show {
+    opacity: 1;
+    transition: opacity .3s;
+    visibility: visible;
+}
+
+
+.forget_popup #forgetclosebtn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.forget_popup #forgetclosebtn svg {
+    padding: 8px;
+    background-color: var(--text_primary);
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.forget_popup .popup_body {
+    width: 400px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.forget_popup .popup_body h4 {
+    text-align: center;
+    color: #fff;
+}
+
+.forget_popup .popup_body p {
+    text-align: center;
+    color: var(--text_primary);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.forget_popup .popup_body .input {
+    display: flex;
+    flex-direction: column;
+}
+
+.forget_popup .popup_body .input label {
+    color: var(--text_secondary);
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.forget_popup .popup_body .input input[type="text"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    color: var(--text_secondary);
+    margin-bottom: 10px;
+}
+
+.forget_popup .popup_body input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 6px;
+}
+
+.forget_popup p a {
+    text-decoration: none;
+    color: var(--accent_purple);
+}
+
+/* Forget_Popup CSS Styling End here */
+
+main .hero {
+    /* background: linear-gradient(320deg, var(--primary_background), var(--accent_green)); */
+    padding-top: 50px;
+    padding-bottom: 100px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 20px;
+}
+
+main .hero header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+main .hero header .first {
+    align-self: flex-start;
+}
+
+main .hero header .first .discipline {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--accent_green);
+    outline: none;
+    background-color: #0A0E1A;
+    color: var(--accent_green);
+    padding: 6px;
+    border-radius: 25px;
+    font-size: 9px;
+    margin-bottom: 8px;
+}
+
+main .hero header .first .discipline svg {
+    margin-right: 10px;
+    width: 15px;
+    height: 15px;
+}
+
+main .hero header .first .discipline p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+main .hero header .first h1 {
+    color: #00F5A0;
+    margin-bottom: 6px;
+}
+
+main .hero header .first p {
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+main .hero header .first #getStartedBtn {
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: var(--accent_purple);
+    border: var(--border);
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+main .hero header .first #watchDemo {
+    padding: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+main .hero header .second {
+    padding: 15px;
+    border-radius: 4px;
+}
+
+main .hero header .second .image_cover {
+    width: 800px;
+    height: auto;
+    border-radius: 6px;
+}
+
+main .hero header .second .image_cover img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+main .hero .performance{
+    margin-bottom: 20px;
+}
+
+main .hero .performance h3 {
+    color: #ddd;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+main .hero .performance .performance_container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+}
+
+main .hero .performance .performance_container .cards {
+    background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 0px 1px rgba(219, 218, 218, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+main .hero .performance .performance_container .cards svg {
+    stroke: #B926FF;
+}
+
+main .hero .performance .performance_container .cards h4 {
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+main .hero .performance .performance_container .cards p {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+main .hero .mobile_responsive{
+    display: flex;
+    align-items: center;
+    padding: 40px;
+}
+
+main .hero .mobile_responsive .mobile_image{
+    width: 200px;
+    height: 200px;
+    margin-right: 50px;
+    align-self: flex-start;
+}
+
+main .hero .mobile_responsive .mobile_image img{
+    object-fit: cover;
+    width: 100%;
+    border-radius: 6px;
+}
+
+main .hero .mobile_responsive .mobile_details strong{
+    color: var(--accent_green);
+}
+
+main .hero .mobile_responsive .mobile_details h1{
+    color: #ddd;
+}
+
+main .hero .mobile_responsive .mobile_details p{
+    color: #ddd;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+main .hero .mobile_responsive .mobile_details ul{
+    margin-bottom: 10px;
+}
+
+main .hero .mobile_responsive .mobile_details ul li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+main .hero .mobile_responsive .mobile_details ul li svg{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    stroke: var(--accent_green);
+}
+
+main .hero .mobile_responsive .mobile_details ul li p{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+main .hero .mobile_responsive .mobile_details button{
+    border: none;
+    outline: none;
+    padding: 8px;
+    background-color: green;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+main .features_section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 20px;
+}
+
+main .features_section h2 {
+    text-align: center;
+    color: var(--text_primary);
+}
+
+main .features_section .feature_card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 15px;
+}
+
+main .features_section .feature_card .card {
+    padding: 10px;
+    background-color: var(--card_background);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+main .features_section .feature_card .card h4 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+main .features_section .feature_card .card p {
+    text-align: center;
+    color: #ddd;
+    font-size: 13px;
+}
+
+main .features_section .feature_card .feature1 h4 {
+    color: var(--accent_purple);
+}
+
+main .features_section .feature_card .feature2 h4 {
+    color: var(--accent_green);
+}
+
+main .features_section .feature_card .feature3 h4 {
+    color: orangered;
+}
+
+main .features_section .feature_card .feature4 h4 {
+    color: orangered;
+}
+
+main .features_section .feature_card .feature5 h4 {
+    color: var(--accent_green);
+}
+
+main .features_section .feature_card .feature6 h4 {
+    color: var(--accent_purple);
+}
+
+main .pricing_section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 20px;
+}
+
+main .pricing_section h2 {
+    text-align: center;
+    color: var(--text_primary);
+}
+
+main .pricing_section .pricing_card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 15px;
+}
+
+main .pricing_section .pricing_card .card {
+    padding: 10px;
+    background-color: var(--card_background);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+main .pricing_section .pricing_card .card h4 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+main .pricing_section .pricing_card .card p {
+    text-align: center;
+    color: #ddd;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+main .pricing_section .pricing_card .card ul {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+main .pricing_section .pricing_card .card ul li {
+    list-style: none;
+    font-size: 15px;
+    color: #8892B0;
+}
+
+main .pricing_section .pricing_card .card button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 8px;
+    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    width: 100%;
+    border-radius: 25px;
+}
+
+main .pricing_section .pricing_card .pricing1 h4 {
+    color: var(--accent_purple);
+}
+
+main .pricing_section .pricing_card .pricing2 h4 {
+    color: var(--accent_green);
+}
+
+main .pricing_section .pricing_card .pricing3 h4 {
+    color: orangered;
+}
+
+
+main .faq_section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 20px;
+}
+
+main .faq_section h2 {
+    text-align: center;
+    color: var(--text_primary);
+    margin-bottom: 10px;
+}
+
+main .faq_section .faq_section_card .section_card h4 {
+    padding: 8px;
+    background-color: var(--primary_background);
+    border: 1px solid var(--border);
+    color: var(--text_primary);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    cursor: pointer;
+}
+
+main .faq_section .faq_section_card .section_card p {
+    padding: 8px;
+    background-color: var(--primary_background);
+    border: 1px solid var(--border);
+    font-size: 13px;
+    color: #ddd;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    opacity: 0;
+    transition: opacity .3s;
+    visibility: hidden;
+}
+
+main .faq_section .faq_section_card .section_card p.show {
+    opacity: 1;
+    transition: opacity .3s;
+    visibility: visible;
+}
+
+footer {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin-bottom: 20px;
+}
+
+footer h4 {
+    color: var(--text_primary);
+    margin-bottom: 10px;
+}
+
+footer .footer_menu {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+}
+
+footer .footer_menu .card {
+    padding: 8px;
+}
+
+footer .footer_menu .card:nth-child(1) .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+footer .footer_menu .card:nth-child(1) .logo svg {
+    stroke: #ffffff;
+    margin-right: 10px;
+}
+
+footer .footer_menu .card:nth-child(1) .logo h4 {
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #ddd;
+}
+
+footer .footer_menu .card:nth-child(1) p {
+    font-size: 12px;
+    color: #ddd;
+    line-height: 2;
+}
+
+footer .footer_menu .card ul {
+    display: flex;
+    flex-direction: column;
+}
+
+footer .footer_menu .card ul h5 {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+footer .footer_menu .card ul li {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+footer .footer_menu .card ul li a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 13px;
+}
+
+footer .footer_menu .card:nth-child(5) h5 {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+footer .footer_menu .card:nth-child(5) p {
+    color: #ffffff;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+footer .footer_menu .card:nth-child(5) .inbox {
+    display: flex;
+    align-items: center;
+}
+
+footer .footer_menu .card:nth-child(5) .inbox input[type="text"] {
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 8px;
+    border-radius: 6px;
+    color: #ffffff;
+}
+
+footer .footer_menu .card:nth-child(5) .inbox input[type="submit"] {
+    margin-right: 10px;
+    border: none;
+    outline: none;
+    background-color: var(--accent_purple);
+    padding: 8px;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+@media (max-width: 1240px) {
+    main .hero header {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    nav .second {
+        display: none;
+    }
+
+    main .hero header h1,
+    p {
+        white-space: wrap;
+    }
+
+    main .hero header .first {
+        margin-bottom: 50px;
+    }
+
+    main .hero header .second {
+        border-radius: 4px;
+        margin-bottom: 50px;
+    }
+
+    main .hero header .second .image_cover {
+        width: 500px;
+        height: auto;
+        border-radius: 6px;
+    }
+
+    main .hero .performance .performance_container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
+
+    footer .footer_menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+
+    main .hero header h1 {
+        font-size: 25px;
+    }
+
+    main .hero header p {
+        font-size: 12px;
+    }
+
+    main .hero header .second {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    main .hero header .second .image_cover {
+        width: 400px;
+        height: auto;
+        border-radius: 6px;
+    }
+
+    main .hero .performance .performance_container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+
+    main .features_section .feature_card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    main .pricing_section .pricing_card {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    footer .footer_menu {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    main .hero .mobile_responsive{
+        flex-direction: column;
+    }
+
+    main .hero .mobile_responsive .mobile_image{
+        align-self: center;
+    }
+
+    main .hero .mobile_responsive .mobile_details{
+        margin-top: 250px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+    main .hero header .second .image_cover {
+        width: 350px;
+        height: auto;
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 400px) {
+    .login_popup .popup_body {
+        width: 300px;
+    }
+
+    .signup_popup .popup_body {
+        width: 300px;
+    }
+
+    .forget_popup .popup_body {
+        width: 300px;
+    }
+
+    main .hero header .second .image_cover {
+        width: 280px;
+        height: auto;
+        border-radius: 6px;
+    }
+
+    main .hero .performance .performance_container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 10px;
+    }
+
+    main .features_section .feature_card {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    main .pricing_section .pricing_card {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    footer .footer_menu {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    footer .footer_menu .card:nth-child(5) .inbox {
+        display: block;
+    }
+
+    footer .footer_menu .card:nth-child(5) .inbox input[type="text"]{
+        margin-bottom: 10px;
+    }
+
+    main .hero .mobile_responsive .mobile_details h1{
+        font-size: 22px;
+    }
+}

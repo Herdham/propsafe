@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/authentication/mt5_account.css' %}">
+    <title>Document</title>
+</head>
+<body>
+        <div class="mt5account_form">
+            <div class="account_body">
+                <form action="" method="post" id="signupForm">
+                    {% csrf_token %}
+                    <h4>🔌CONNECT YOUR MT5 ACCOUNT</h4>
+                    <div class="input">
+                        <label for="email">MT5 Login ID</label>
+                        <input type="text" name="loginid" placeholder="mt5 login id" autocomplete="off" required>
+                    </div>
+                    <div class="input">
+                        <label for="password">MT5 Password</label>
+                        <input type="password" name="username" placeholder="*********" autocomplete="off" required>
+                    </div>
+                    <div class="input">
+                        <label for="server">Server</label>
+                        <input type="text" name="server" placeholder="Server" required>
+                    </div>
+                    <div class="checkbox">
+                        <div class="check">
+                            <input type="checkbox" name="checkbok" id="checkbox">
+                            <p>Check Password</p>
+                        </div>
+                    </div>
+                    <input type="submit" value="Connect MT5">
+                    <p>Your credentials are encypted and never stored</p>
+                </form>
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --primary_background: #0A0E1A;
+    --card_background: rgba(225, 255, 255, 0.04);
+    --border: rgba(225, 255, 255, 0.06);
+    --text_primary: #ffffff;
+    --text_secondary: #8892B0;
+    --accent_purple: #B926FF;
+    --accent_green: #00F5A0;
+    --danger_red: #FF4D6D;
+    --box_shadow: rgba(0, 0, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--primary_background);
+    width: 100%;
+    height: 100vh;
+}
+
+.forget_popup {
+    background-color: rgba(0, 0, 0, 1);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    padding: 10px;
+}
+
+.forget_popup #forgetclosebtn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.forget_popup #forgetclosebtn svg {
+    padding: 8px;
+    background-color: var(--text_primary);
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.forget_popup .popup_body {
+    width: 400px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.forget_popup .popup_body h4 {
+    text-align: center;
+    color: var(--text_secondary);
+}
+
+.forget_popup .popup_body p {
+    text-align: center;
+    color: var(--text_primary);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.forget_popup .popup_body .input {
+    display: flex;
+    flex-direction: column;
+}
+
+.forget_popup .popup_body .input label {
+    color: var(--text_secondary);
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.forget_popup .popup_body .input input[type="text"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    color: var(--text_secondary);
+    margin-bottom: 10px;
+}
+
+.forget_popup .popup_body .input input[type="password"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    color: var(--text_secondary);
+    margin-bottom: 10px;
+}
+
+.forget_popup .popup_body input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 6px;
+}
+
+.forget_popup p a {
+    text-decoration: none;
+    color: var(--accent_purple);
+}
+
+@media (max-width: 400px) {
+    .forget_popup .popup_body {
+        width: 300px;
+    }
+
+}
+
+/* Forget_Popup CSS Styling End here */

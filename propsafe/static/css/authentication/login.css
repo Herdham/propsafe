@@ -1,0 +1,182 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --primary_background: #0A0E1A;
+    --card_background: rgba(225, 255, 255, 0.04);
+    --border: rgba(225, 255, 255, 0.06);
+    --text_primary: #ffffff;
+    --text_secondary: #8892B0;
+    --accent_purple: #B926FF;
+    --accent_green: #00F5A0;
+    --danger_red: #FF4D6D;
+    --box_shadow: rgba(0, 0, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--primary_background);
+    width: 100%;
+    height: 100vh;
+}
+
+main {
+    margin-top: 70px;
+    position: relative;
+}
+
+/* Login_Popup CSS Styling */
+
+svg {
+    width: 25px;
+    height: 25px;
+}
+
+.login_popup {
+    background-color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    padding: 10px;
+}
+
+
+.login_popup #loginclosebtn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login_popup #loginclosebtn svg {
+    padding: 8px;
+    background-color: var(--text_primary);
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.login_popup .popup_body {
+    width: 400px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.login_popup .popup_body h4 {
+    text-align: center;
+    color: var(--text_primary);
+}
+
+.login_popup .popup_body p {
+    text-align: center;
+    color: var(--text_primary);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.login_popup .popup_body .input {
+    display: flex;
+    flex-direction: column;
+}
+
+.login_popup .popup_body .input label {
+    color: var(--text_secondary);
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.login_popup .popup_body .input input[type="text"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    color: var(--text_secondary);
+    margin-bottom: 10px;
+}
+
+.login_popup .popup_body .input input[type="password"] {
+    border: 1px solid var(--text_secondary);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    background-color: var(--primary_background);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: var(--text_secondary);
+}
+
+.login_popup .popup_body .login_checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login_popup .popup_body .login_checkbox .check {
+    display: flex;
+    align-items: center;
+}
+
+.login_popup .popup_body .login_checkbox .check input[type="checkbox"] {
+    margin-right: 8px;
+    border-radius: 5px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    outline: none;
+}
+
+.login_popup .popup_body .login_checkbox .check p {
+    margin-top: 10px;
+}
+
+.login_popup .popup_body .login_checkbox a {
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--accent_purple);
+}
+
+.login_popup .popup_body input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 6px;
+}
+
+.login_popup p a {
+    text-decoration: none;
+    color: var(--accent_purple);
+}
+
+.login_popup #error {
+    color: red;
+    text-align: center;
+}
+
+@media (max-width: 400px) {
+    .login_popup .popup_body {
+        width: 300px;
+    }
+
+}
+
+/* Login_Popup CSS Styling End here */

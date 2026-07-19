@@ -1,0 +1,1928 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --primary_background: #0A0E1A;
+    --card_background: rgba(225, 255, 255, 0.04);
+    --border: rgba(225, 255, 255, 0.06);
+    --text_primary: #ffffff;
+    --text_secondary: #8892B0;
+    --accent_purple: #B926FF;
+    --accent_green: #00F5A0;
+    --danger_red: #FF4D6D;
+    --box_shadow: rgba(0, 0, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+svg {
+    width: 25px;
+    height: 25px;
+}
+
+body {
+    background-color: var(--text_primary);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container header {
+    width: 20%;
+    height: 100vh;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    background-color: #dddddd;
+    overflow-y: auto;
+}
+
+.container header .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container header .logo svg {
+    stroke-width: 3px;
+    margin-right: 10px;
+    stroke: #B926FF;
+}
+
+.container header ul {
+    margin-bottom: 30px;
+}
+
+.container header ul a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.container header ul a:nth-child(1) {
+    background-color: #e5cef0;
+    border-radius: 6px;
+}
+
+.container header ul a:hover {
+    background-color: #e5cef0;
+    border-radius: 6px;
+}
+
+.container header ul a svg {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    stroke: #0A0E1A;
+}
+
+.container header ul a p {
+    font-size: 13px;
+    color: #0A0E1A;
+}
+
+.container header .ai_coach {
+    margin-bottom: 30px;
+    padding: 8px;
+    background-color: #0A0E1A;
+    border-radius: 6px;
+}
+
+.container header .ai_coach h5 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.container header .ai_coach p {
+    color: var(--text_secondary);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.container header .ai_coach button {
+    border: none;
+    outline: none;
+    background-color: var(--accent_purple);
+    color: #ffffff;
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.container header .user_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.container header .user_info .user_info_container {
+    display: flex;
+    align-items: center;
+}
+
+.container header .user_info .user_info_container img {
+    border-radius: 50px;
+    margin-right: 10px;
+    align-self: flex-start;
+}
+
+.container header .user_info .user_info_container .user_header h4 {
+    font-size: 14px;
+}
+
+.container header .user_info .user_info_container .user_header p {
+    font-size: 12px;
+}
+
+.container header .user_info svg {
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.container .sidebar_popup{
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.80);
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+
+.container .sidebar_popup.modal_open{
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
+}
+
+.container .sidebar_popup .sidebar_close{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.container .sidebar_popup .sidebar_close svg{
+    stroke: #0A0E1A;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.container .sidebar_popup .popup_container .logo{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;    
+}
+
+.container .sidebar_popup .popup_container .logo svg{
+    stroke: var(--accent_purple);
+    stroke-width: 3;
+    margin-right: 10px;
+}
+
+.container .sidebar_popup .popup_container .logo h3{
+    color: #ffffff;
+}
+
+.container .sidebar_popup .popup_container ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.container .sidebar_popup .popup_container ul a{
+    margin-bottom: 10px;
+    padding: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.80);
+    border-radius: 6px;
+}
+
+.container .sidebar_popup .popup_container ul a svg{
+    margin-right: 10px;
+    stroke: #dddddd;
+}
+
+.container .sidebar_popup .popup_container ul a p{
+    color: #ddd;
+}
+
+.container .sidebar_popup .popup_container .ai_coach {
+    margin-bottom: 30px;
+    padding: 8px;
+    background-color: #0A0E1A;
+    border-radius: 6px;
+}
+
+.container .sidebar_popup .popup_container .ai_coach h5 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.container .sidebar_popup .popup_container .ai_coach p {
+    color: var(--text_secondary);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.container .sidebar_popup .popup_container .ai_coach button {
+    border: none;
+    outline: none;
+    background-color: var(--accent_purple);
+    color: #ffffff;
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.container .sidebar_popup .popup_container .user_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.container .sidebar_popup .popup_container .user_info .user_info_container {
+    display: flex;
+    align-items: center;
+}
+
+.container .sidebar_popup .popup_container .user_info .user_info_container img {
+    border-radius: 50px;
+    margin-right: 10px;
+    align-self: flex-start;
+}
+
+.container .sidebar_popup .popup_container .user_info .user_info_container .user_header h4 {
+    font-size: 14px;
+    color: #dddddd;
+}
+
+.container .sidebar_popup .popup_container .user_info .user_info_container .user_header p {
+    font-size: 12px;
+    color: #dddddd;
+}
+
+.container .sidebar_popup .popup_container .user_info svg {
+    cursor: pointer;
+    align-self: flex-start;
+    stroke: #ffffff;
+}
+
+.container main {
+    margin-left: 20%;
+    width: 79%;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+.container main nav {
+    width: 78%;
+    padding: 8px;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.container main nav .first{
+    display: flex;
+    align-items: center;
+}
+
+.container main nav .first svg{
+    margin-right: 10px;
+    margin-top: 4px;
+    align-self: flex-start;
+    display: none;
+}
+
+.container main nav .first p {
+    color: var(--text_secondary);
+}
+
+.container main nav .second {
+    display: flex;
+    align-items: center;
+}
+
+.container main nav .second svg {
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.container main nav .second a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: var(--accent_purple);
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.container main nav .second #logout{
+    padding: 0px;
+    background: transparent;
+    color: var(--primary_background);
+}
+
+.container main nav .second #profile_picture{
+    padding: 0px;
+    background: transparent;
+    border: 2px solid var(--primary_background);
+    border-radius: 50%;
+}
+
+.container main nav .second a svg {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.container main nav .second a p {
+    font-size: 12px;
+}
+
+.container main nav .second img {
+    border-radius: 50px;
+}
+
+.container main .nav_bottom{
+    width: 100%;
+    padding: 8px;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    background-color: #fff;
+    margin: 0px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    display: none;
+}
+
+.container main .nav_bottom ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container main .nav_bottom ul a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container main .nav_bottom ul a svg{
+    width: 20px;
+    height: 20px;
+    stroke: #B926FF;
+}
+
+.container main .nav_bottom ul a p{
+    font-size: 12px;
+    color: #0A0E1A;
+}
+.container main .nav_bottom ul a:nth-child(3) svg{
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #B926FF;
+    stroke: #fff;
+    width: 35px;
+    height: 35px;
+}
+
+.container main section {
+    margin-top: 70px;
+    padding: 10px;
+}
+
+.container main section .feature_section {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 10px;
+}
+
+.container main section .feature_section .card {
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.container main section .feature_section .card p {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.container main section .feature_section .card .best {
+    color: green;
+}
+
+.container main section .feature_section .card h5 {
+    margin-bottom: 5px;
+    font-weight: 900;
+    font-size: 17px;
+}
+
+.container main section .feature_section .card p svg {
+    margin-right: 10px;
+}
+
+.container main section .feature_section .feature1 p svg {
+    stroke: orangered;
+}
+
+.container main section .feature_section .feature2 p svg {
+    stroke: var(--accent_purple);
+}
+
+.container main section .feature_section .feature3 p svg {
+    stroke: var(--accent_green);
+}
+
+.container main section .feature_section .feature4 p svg {
+    stroke: var(--accent_purple);
+}
+
+.container main section .consistency_simulator {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.container main section .consistency_simulator .container {
+    padding: 10px;
+    background-color: var(--text_primary);
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.container main section .consistency_simulator .container h5 {
+    margin-bottom: 10px;
+}
+
+.container main section .consistency_simulator .container .consistency_percent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container main section .consistency_simulator .container .consistency_percent .percent_wrap {
+    display: flex;
+    align-items: center;
+}
+
+.container main section .consistency_simulator .container .consistency_percent .percent_wrap .percent {
+    padding: 4px;
+    background-color: var(--text_secondary);
+    width: 50px;
+    border-radius: 25px;
+    margin-right: 4px;
+}
+
+.container main section .recent_trade {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.container main section .recent_trade .recent {
+    background-color: var(--text_primary);
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    padding: 10px;
+    grid-column: 1 / 4;
+    height: auto;
+    align-self: flex-start;
+}
+
+.container main section .recent_trade .recent .recent_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.container main section .recent_trade .recent .recent_header a {
+    text-decoration: none;
+    color: #B926FF;
+    font-size: 13px;
+}
+
+.container main section .recent_trade .recent table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.container main section .recent_trade .recent table th,
+td {
+    padding: 12px 16px;
+    width: auto;
+    font-size: 12px;
+    text-align: center;
+}
+
+.container main section .recent_trade .recent table .trade_option {
+    color: green
+}
+
+.container main section .recent_trade .recent table .trade_result {
+    color: green;
+}
+
+.container main section .daily_check_in {
+    background-color: var(--text_primary);
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    padding: 10px;
+    /* height: auto;
+    align-self: flex-start; */
+    grid-column: 4 / 6;
+}
+
+.container main section .daily_check_in h5 {
+    margin-bottom: 10px;
+}
+
+.container main section .daily_check_in .log_trade {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.container main section .daily_check_in .log_trade p {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+.container main section .daily_check_in .log_trade p svg {
+    width: 20px;
+    height: 20px;
+    stroke: #8892B0;
+}
+
+.container main section .daily_check_in .log_trade .first svg {
+    margin-right: 10px;
+}
+
+.container main section .daily_check_in .log_trade .second svg {
+    margin-left: 10px;
+}
+
+.container main section .daily_check_in .screenshot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.container main section .daily_check_in .screenshot p {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+.container main section .daily_check_in .screenshot p svg {
+    width: 20px;
+    height: 20px;
+    stroke: #8892B0;
+}
+
+.container main section .daily_check_in .screenshot .first svg {
+    margin-right: 10px;
+}
+
+.container main section .daily_check_in .screenshot .second svg {
+    margin-left: 10px;
+}
+
+.container main section .daily_check_in .note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.container main section .daily_check_in .note p {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+.container main section .daily_check_in .note p svg {
+    width: 20px;
+    height: 20px;
+    stroke: #8892B0;
+}
+
+.container main section .daily_check_in .note .first svg {
+    margin-right: 10px;
+}
+
+.container main section .daily_check_in .note .second svg {
+    margin-left: 10px;
+}
+
+.container main section .daily_check_in #continue_streak{
+    padding: 8px;
+    background-color: var(--accent_purple);
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 6px;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.container main section .daily_check_in .trade_summary {
+    border-radius: 6px;
+    height: auto;
+}
+
+.container main section .daily_check_in .trade_summary p {
+    font-size: 12px;
+    color: var(--accent_purple);
+}
+
+.container main section .daily_check_in .trade_summary .quick_summary {
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.container main section .daily_check_in .trade_summary .quick_summary h5 {
+    margin-bottom: 10px;
+}
+
+.container main section .daily_check_in .trade_summary .quick_summary ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.container main section .daily_check_in .trade_summary .quick_summary ul li p {
+    display: flex;
+    align-items: center;
+    color: #0A0E1A;
+}
+
+.container main section .daily_check_in .trade_summary .quick_summary ul li p svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+
+.container main section .daily_check_in .trade_summary .quick_summary ul li p strong {
+    font-size: 10px;
+}
+
+.container main section .daily_check_in .trade_summary .quick_summary a{
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--accent_purple);
+}
+
+.container main section .analytics_chart{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.container main section .analytics_chart .emotional_state{
+    grid-column: 1 / 3;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.container main section .analytics_chart .emotional_state h5 {
+    margin-bottom: 20px;
+}
+
+.container main section .analytics_chart .emotional_state .analytic_container{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container main section .analytics_chart .emotional_state .analytic_container .legend{
+    margin-left: 10px;
+}
+
+.container main section .analytics_chart .emotional_state .analytic_container .legend .item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.container main section .analytics_chart .emotional_state .analytic_container .legend .item span{
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.container main section .analytics_chart .emotional_state .analytic_container .legend .item span:nth-child(3){
+    font-weight: 700;
+}
+
+.container main section .analytics_chart .emotional_state .analytic_container .legend .item .dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #0A0E1A;
+}
+
+.container main section .analytics_chart .emotional_state .analytic_container .legend .item .confident{
+    background-color: rgba(54, 162, 235, 0.6);
+}
+
+.container main section .analytics_chart .emotional_state .analytic_container .legend .item .calm{
+    background-color: rgba(255, 99, 132, 0.6);
+}
+
+.container main section .analytics_chart .emotional_state .analytic_container .legend .item .fearful{
+    background-color: rgba(255, 206, 86, 0.6);
+}
+
+.container main section .analytics_chart .emotional_state .analytic_container .legend .item .frustrated{
+    background-color: rgba(75, 193, 192, 0.6);
+}
+
+.container main section .analytics_chart .emotional_state .analytic_container .legend .item .others{
+    background-color: gba(153, 102, 255, 0.6);
+}
+
+.container main section .analytics_chart .emotional_state a{
+    text-decoration: none;
+    font-size: 13px;
+    color: #B926FF;
+}
+
+.container main section .analytics_chart .performance{
+    grid-column: 3 / 6;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.container main section .analytics_chart .performance #performance_container {
+    height: 300px;
+}
+
+.container main section .analytics_chart .performance a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #B926FF;
+}
+
+
+/* New Trade Section Part Design */
+
+.container main .newtrade_nav .first{
+    display: block;
+}
+
+.container main .newtrade_nav .first ul {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.container main .newtrade_nav .first ul a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #0A0E1A;
+    margin-top: 6px;
+}
+
+.container main .newtrade_nav .first ul svg {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+}
+
+.container main .newtrade_nav .first ul a:nth-child(1) {
+    margin-right: 10px;
+
+}
+
+.container main .newtrade_nav .first p {
+    font-size: 13px;
+}
+
+.container main .newtrade_nav .second #cancle {
+    background-color: #ddd;
+    font-size: 13px;
+    color: #0A0E1A;
+}
+
+.container main .newtrade_nav .second #cancle svg {
+    width: 20px;
+    height: 20px;
+}
+
+.container main .newtrade_nav .second #cancle p {
+    font-size: 13px;
+}
+
+.container main .newtrade_section form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin-top: 60px;
+}
+
+.container main .newtrade_section .newtrade_form {
+    grid-column: 1 / 4;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.container main .newtrade_section .newtrade_form h4 {
+    margin-bottom: 10px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div label {
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div select {
+    border: none;
+    outline: none;
+    padding: 8px;
+    background-color: #dddddd;
+    border-radius: 5px;
+    cursor: pointer;
+    appearance: none;
+    font-size: 13px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div select option {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div select option:hover,
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div select option:checked {
+    background: #2a2a42;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div select option[disabled] {
+    color: #888;
+    font-style: italic;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input #market_direction{
+    margin-top: -20px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .direction {
+    display: flex;
+    align-items: center;
+    background-color: #dddddd;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .direction label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .direction label:nth-child(1) p {
+    color: green;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .direction label:nth-child(2) p {
+    color: red;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .direction label input {
+    margin-right: 10px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .result {
+    display: flex;
+    align-items: center;
+    background-color: #dddddd;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .result label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .result label:nth-child(1) p {
+    color: green;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .result label:nth-child(2) p {
+    color: red;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .result label input {
+    margin-right: 10px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .status {
+    display: flex;
+    align-items: center;
+    background-color: #dddddd;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .status label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .status label:nth-child(1) p {
+    color: green;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .status label:nth-child(2) p {
+    color: red;
+    margin-right: 5px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .status label:nth-child(3) p {
+    color: var(--accent_purple);
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div .status label input {
+    margin-right: 10px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div input[type="number"] {
+    padding: 8px;
+    border: none;
+    outline: none;
+    background-color: #dddddd;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div input[type="text"] {
+    padding: 8px;
+    border: none;
+    outline: none;
+    background-color: #dddddd;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input div input[type="datetime-local"] {
+    padding: 8px;
+    border: none;
+    outline: none;
+    background-color: #dddddd;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup hr {
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input #note {
+    grid-column: 1 / 3;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input #note textarea {
+    border: none;
+    outline: none;
+    background-color: #ddd;
+    padding: 8px;
+    border-radius: 5px;
+    height: 80px;
+    resize: none;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input #lesson {
+    grid-column: 1 / 4;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input #lesson textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: #ddd;
+    padding: 8px;
+    border-radius: 5px;
+    height: 80px;
+    resize: none;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input .attachment {
+    grid-column: 1 / 4;
+    background-color: #ddd;
+    border-radius: 6px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input .attachment p {
+    font-size: 13px;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input .attachment svg {
+    width: 50px;
+    height: 50px;
+    stroke-width: 2px;
+    cursor: pointer;
+}
+
+.container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input .attachment textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    font-size: 13px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background-color: #dddddd;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+}
+
+.container main .trade_options .trade_summary {
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.container main .trade_options .trade_summary h4 {
+    margin-bottom: 10px;
+}
+
+.container main .trade_options .trade_summary ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.container main .trade_options .trade_summary ul li p {
+    font-size: 12px;
+}
+
+.container main .trade_options .trade_summary hr {
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+}
+
+.container main .trade_options .risk_calculator {
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.container main .trade_options .risk_calculator h4 {
+    margin-bottom: 10px;
+}
+
+.container main .trade_options .risk_calculator div {
+    display: flex;
+    flex-direction: column;
+}
+
+.container main .trade_options .risk_calculator div label {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.container main .trade_options .risk_calculator div input[type="number"] {
+    padding: 8px;
+    border: none;
+    outline: none;
+    background-color: #dddddd;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.container main .trade_options .risk_calculator div select {
+    border: none;
+    outline: none;
+    padding: 8px;
+    background-color: #dddddd;
+    border-radius: 5px;
+    cursor: pointer;
+    appearance: none;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.container main .trade_options .risk_calculator div select option {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.container main .trade_options .risk_calculator div select option:hover,
+.container main .trade_options .risk_calculator div select option:checked {
+    background: #2a2a42;
+}
+
+.container main .trade_options .risk_calculator div select option[disabled] {
+    color: #888;
+    font-style: italic;
+}
+
+.container main .trade_options .risk_calculator ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.container main .trade_options .checklist {
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.container main .trade_options .checklist h4 {
+    margin-bottom: 5px;
+}
+
+.container main .trade_options .checklist p {
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.container main .trade_options .checklist ul li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 8px;
+}
+
+.container main .trade_options .checklist ul li:nth-child(6) {
+    margin-bottom: 0px;
+}
+
+.container main .trade_options .checklist ul li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.container main .trade_options .checklist ul li p {
+    margin-top: 10px;
+}
+
+.container main .trade_options input[type="submit"] {
+    border: none;
+    outline: none;
+    background-color: var(--accent_purple);
+    color: #fff;
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* New Part Ends Here*/
+
+
+/* Profile Page Section */
+
+.container .main_profile .profile_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.container .main_profile .profile_header .first{
+    display: flex;
+    align-items: center;
+}
+
+.container .main_profile .profile_header .first svg{
+    margin-right: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.container .main_profile .profile_header a {
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 25px;
+    font-size: 12px;
+    background-color: var(--accent_purple);
+    color: #fff;
+}
+
+.container .main_profile .profile_section_container {
+    padding: 15px;
+}
+
+.container .main_profile .profile_section_container .profile_section_details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.container .main_profile .profile_section_container .profile_section_details .image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 30px;
+    align-self: flex-start;
+}
+
+.container .main_profile .profile_section_container .profile_section_details .image a {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.container .main_profile .profile_section_container .profile_section_details .image a img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.container .main_profile .profile_section_container .profile_section_details .image svg {
+    position: absolute;
+    background-color: var(--accent_purple);
+    padding: 8px;
+    border-radius: 50%;
+    stroke: #fff;
+    width: 35px;
+    height: 35px;
+    margin-top: -22%;
+    margin-left: 75%;
+    cursor: pointer;
+}
+
+.container .main_profile .profile_section_container .profile_section_details .profile_details {
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+.container .main_profile .profile_section_container .profile_section_details .profile_details h2 {
+    margin-bottom: 10px;
+}
+
+.container .main_profile .profile_section_container .profile_section_details .profile_details p {
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #8892B0;
+}
+
+.container .main_profile .profile_section_container .profile_section_details .profile_details .extra_info ul {
+    display: flex;
+    align-items: center;
+}
+
+.container .main_profile .profile_section_container .profile_section_details .profile_details .extra_info ul li {
+    list-style: none;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.container .main_profile .profile_section_container .profile_section_details .profile_details .extra_info ul li svg {
+    margin-right: 10px;
+}
+
+.container .main_profile .profile_section_container .profile_section_details .profile_details .extra_info ul li p {
+    margin: auto;
+}
+
+.container .main_profile .profile_section_container .profile_section_info {
+    margin-top: 50px;
+    padding: 8px;
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.container .main_profile .profile_section_container .profile_section_info div {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .main_profile .profile_section_container .profile_section_info div label {
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.container .main_profile .profile_section_container .profile_section_info div input {
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #ddd;
+    font-size: 12px;
+    border: none;
+    outline: none;
+}
+
+.container .main_profile .profile_section_container .profile_section_info hr {
+    grid-column: 1 / 4;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+}
+
+.container .main_profile .profile_section_container .profile_stat {
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+}
+
+.container .main_profile .profile_section_container .profile_stat h4 {
+    margin-bottom: 7px;
+}
+
+.container .main_profile .profile_section_container .profile_stat .profile_stat_wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+}
+
+.container .main_profile .profile_section_container .profile_stat .profile_stat_wrapper .card {
+    background-color: #ddd;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.container .main_profile .profile_section_container .profile_stat .profile_stat_wrapper .card p {
+    font-size: 12px;
+}
+
+
+.container .main_profile .profile_section_container .account_setting {
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    margin-bottom: 10px;
+}
+
+.container .main_profile .profile_section_container .account_setting h4 {
+    margin-bottom: 10px;
+}
+
+.container .main_profile .profile_section_container .account_setting ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .main_profile .profile_section_container .account_setting ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.container .main_profile .profile_section_container .account_setting ul li .setting_details {
+    display: flex;
+    align-items: center;
+}
+
+.container .main_profile .profile_section_container .account_setting ul li .setting_details svg {
+    margin-right: 10px;
+}
+
+.container .main_profile .profile_section_container .account_setting ul li:hover {
+    background-color: #ddd;
+    border-radius: 6px;
+}
+
+.container .main_profile .profile_section_container .account_setting ul li:nth-child(4) p {
+    color: red;
+}
+
+.container .main_profile .profile_section_container .account_setting ul li:nth-child(4) .setting_details svg {
+    color: red;
+}
+
+.container .main_profile .profile_section_container .account_setting ul li p {
+    font-size: 12px;
+}
+
+.container .main_profile .profile_section_container .account_setting ul li svg {
+    width: 20px;
+    height: 20px;
+}
+
+.container .main_profile .upload_picture{
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.80);
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+
+.container .main_profile .upload_picture.modal_open{
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
+}
+
+.container .main_profile .upload_picture .upload_close {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.container .main_profile .upload_picture .upload_close svg {
+    stroke: #0A0E1A;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.container .main_profile .upload_picture form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 8px;
+    border-radius: 6px;
+    width: 300px;
+}
+
+.container .main_profile .upload_picture form h3{
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.container .main_profile .upload_picture form .choose_image{
+    padding: 15px;
+    background-color: #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container .main_profile .upload_picture form .choose_image label svg{
+    cursor: pointer;
+    width: 80px;
+    height: 80px;   
+}
+
+.container .main_profile .upload_picture form .choose_image label p{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.40);
+    margin-bottom: 10px;
+}
+
+.container .main_profile .upload_picture form img{
+    width: 100px;
+    object-fit: cover;
+}
+
+.container .main_profile .upload_picture form input[type="submit"]{
+    width: 100%;
+    padding: 8px;
+    background-color: var(--accent_purple);
+    color: #fff;
+    font-size: 13px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Main Profile End Here */
+
+/*Main settings Start Here*/
+
+.container .main_setting{
+    padding: 8px;
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+.container .main_setting h3 {
+    margin-bottom: 30px;
+}
+
+.container .main_setting .setting_section_info form {
+    margin-top: 50px;
+    padding: 8px;
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.container .main_setting .setting_section_info div {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .main_setting .setting_section_info div label {
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.container .main_setting .setting_section_info div input {
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #ddd;
+    font-size: 12px;
+    border: none;
+    outline: none;
+}
+
+.container .main_setting .setting_section_info .bio textarea{
+    resize: none;
+    border: none;
+    outline: none;
+    background-color: #ddd;
+    border-radius: 6px;
+    font-size: 13px;
+    padding: 8px;
+}
+
+.container .main_setting .setting_section_info hr {
+    grid-column: 1 / 4;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+}
+
+.container .main_setting .setting_section_info div select {
+    border: none;
+    outline: none;
+    padding: 8px;
+    background-color: #dddddd;
+    border-radius: 5px;
+    cursor: pointer;
+    appearance: none;
+    font-size: 13px;
+}
+
+.container .main_setting .setting_section_info div select option {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.container .main_setting .setting_section_info div select option:hover,
+.container .main_setting .setting_section_info div select option:checked {
+    background: #2a2a42;
+}
+
+.container .main_setting .setting_section_info div select option[disabled] {
+    color: #888;
+    font-style: italic;
+}
+
+.container .main_setting .setting_section_info button {
+    border: none;
+    outline: none;
+    background-color: var(--accent_purple);
+    padding: 8px;
+    color: #fff;
+    border-radius: 6px;
+    grid-column: 1 / 4;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .main_setting .setting_section_info button svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+@media (max-width: 1150px){
+    .container header {
+        display: none;
+    }
+
+    .container main{
+        margin-left: 0%;
+        width: 100%;
+    }
+
+    .container main nav {
+        width: 100%;
+    }
+
+    .container main nav .first svg {
+        display: block;
+        cursor: pointer;
+    }
+
+    .container .main_profile .profile_header .first svg {
+        display: block;
+    }
+}
+
+@media (max-width: 900px) {
+    .container main nav .first p{
+        font-size: 12px;
+    }
+
+    .container main section .feature_section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container main section .recent_trade .recent {
+        grid-column: 1 / 6;
+    }
+
+    .container main section .recent_trade .daily_check_in {
+        grid-column: 1 / 6;
+    }
+
+    .container main nav .second svg:nth-child(3){
+        display: none;
+    }
+
+    .container main nav .second #logout{
+        display: none;
+    }
+
+    .container main section .consistency_simulator .container .consistency_percent .percent_wrap .percent:nth-child(11), .percent:nth-child(10), .percent:nth-child(9), .percent:nth-child(8){
+        display: none;
+    }
+
+    .container main .newtrade_section .newtrade_form {
+        grid-column: 1 / 5;
+    }
+
+    .container main .newtrade_section .trade_options {
+        grid-column: 1 / 5;
+    }
+
+    .container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container main section .analytics_chart .emotional_state {
+        grid-column: 1 / 5;
+    }
+
+    .container main section .analytics_chart .emotional_state .analytic_container{
+        justify-content: space-between;
+    }
+
+    .container main section .analytics_chart .performance {
+        grid-column: 1 / 5;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .container main nav .second #new_trade {
+        display: none;
+    }
+
+    .container main section .recent_trade .daily_check_in {
+        grid-column: 1 / 6;
+    }
+
+    .container main section .recent_trade .recent table thead tr th:nth-child(3), th:nth-child(4),  th:nth-child(6){
+        display: none;
+    }
+
+    .container main section .recent_trade .recent table tbody tr td:nth-child(3), td:nth-child(4),  td:nth-child(6){
+        display: none;
+    }
+
+    .container main .nav_bottom {
+        display: block;
+    }
+
+    .container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .container .main_profile .profile_section_container .profile_section_details {
+        flex-direction: column;
+    }
+
+    .container .main_profile .profile_section_container .profile_section_details .image {
+        margin-bottom: 15px;
+    }
+
+    .container .main_profile .profile_section_container .profile_section_details .image svg {
+        display: block;
+    }
+
+    .container .main_profile .profile_section_container .profile_section_info{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .container .main_profile .profile_section_container .profile_section_info hr {
+        grid-column: 1/ 2;
+    }
+
+    .container .main_profile .profile_section_container .profile_stat .profile_stat_wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    
+    .container .main_setting .setting_section_info form {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .container .main_setting .setting_section_info hr {
+         grid-column: 1 / 2;
+    }
+
+    .container .main_setting .setting_section_info button {
+        grid-column: 1 / 2;
+    }
+
+    .container main .newtrade_section .newtrade_form .trade_setup .trade_setup_input #market_direction {
+        margin-top: 10px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+    .container main nav .second svg:nth-child(1), svg:nth-child(2) {
+        display: none;
+    }
+
+    .container main section .consistency_simulator .container .consistency_percent .percent_wrap .percent:nth-child(7),
+    .percent:nth-child(6),
+    .percent:nth-child(5),
+    .percent:nth-child(4) {
+        display: none;
+    }
+
+    .container main .newtrade_nav .first ul {
+        display: none;
+    }
+
+    .container main .newtrade_nav .second #cancle{
+        display: none;
+    }
+
+    .container main .newtrade_section form {
+        margin-top: 20px;
+    }
+
+    .container .main_profile .profile_section_container .account_setting ul li svg{
+        display: block;
+    }
+
+    .container main section .analytics_chart .emotional_state .analytic_container {
+        width: 200px;
+        height: 200px;
+    }
+
+    .container main section .analytics_chart .performance #performance_container {
+        height: 220px;
+    }
+}
+
+@media (max-width: 400px){
+    .container .main_profile .profile_section_container .profile_stat .profile_stat_wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container main nav .first .welcome_message h3 {
+        font-size: 14px;
+    }
+
+    .container main nav .first svg{
+        margin-top: 0px;
+    }
+
+    .container main section .analytics_chart .emotional_state .analytic_container {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 35px;
+    }
+
+    .container main section .analytics_chart .emotional_state .analytic_container .legend .item{
+        margin-bottom: 5px;
+    }
+}

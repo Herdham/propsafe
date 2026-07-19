@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/authentication/login.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login_popup">
+        <div class="popup_body">
+            <form action="", method="post">
+                {% csrf_token %}
+                <h4>Welcome Back</h4>
+                <p>Sign in to access to your dashboard, settings and profiles.</p>
+                {% if login_form.errors %}
+                        <p id="error">{{login_form.email.errors.0}}</p>
+                {% endif %}
+                <div class="input">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" value="{{login_form.email.value|default:''}}" placeholder="name@email.com" autocomplete="off" required>
+                </div>
+                <div class="input">
+                    <label for="password">Password</label>
+                    <input type="password" id="login_password" name="password" placeholder="**********" required>
+                </div>
+                <div class="login_checkbox">
+                    <div class="check">
+                        <input type="checkbox" name="checkbok" id="checkbox">
+                        <p>Check Password</p>
+                    </div>
+                    <a href="{% url 'account:password_reset' %}" id="forgetBtn">Forget password?</a>
+                </div>
+                <input type="submit" name="login_btn" value="Log in">
+                <p>Already have an account? <a href="{% url 'account:signup' %}">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'js/authentication/landing_base.js' %}"></script>
+</body>
+</html>
