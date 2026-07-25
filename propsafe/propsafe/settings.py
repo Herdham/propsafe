@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-f#!no238=sdi=1zd)g+ewt!!o-bx1!@dsjjd)dnnq2=aju(j2n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['propsafe.onrender.com']
+ALLOWED_HOSTS = ['propsafe.onrender.com', 'localhost', '127.0.0.1']
 
 # Database configuration
 DATABASES = {
@@ -147,12 +147,21 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# STORAGES = {
+#     "default": {
+#         "BACKEND": "django.core.files.storage.FileSystemStorage",
+#     },
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
+
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
 
