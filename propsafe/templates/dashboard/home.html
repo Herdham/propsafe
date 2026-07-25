@@ -203,7 +203,11 @@
                     <p>New Trade</p>
                 </a>
                 <a href="{% url 'account:profile' profile.id %}" id="profile_picture">
-                    <img width="30px" height="30px" src="{{user.profile.profile_picture.url}}" alt="">
+                    {% if user.profile.profile_picture %}
+                        <img width="30px" height="30px" src="{{user.profile.profile_picture.url}}" alt="">
+                    {% else %}
+                        <img width="30px" height="30px" src="{% static 'images/image.png' %}" alt="">
+                    {% endif %}
                 </a>
             </div>
         </nav>
