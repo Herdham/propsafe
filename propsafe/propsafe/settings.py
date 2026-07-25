@@ -177,6 +177,9 @@ STORAGES = {
     },
 }
 
+# Compatibility line for django-cloudinary-storage
+STATICFILES_STORAGE = STORAGES["staticfiles"]["BACKEND"]
+
 
 MEDIA_URL = '/media/'
 
