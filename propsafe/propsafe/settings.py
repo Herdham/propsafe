@@ -168,18 +168,31 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #     },
 # }
 
+# STORAGES = {
+#     "default": {
+#         "BACKEND": "django.core.files.storage.FileSystemStorage",
+#     },
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+#     },
+# }
+
+# # Compatibility line for django-cloudinary-storage
+# STATICFILES_STORAGE = STORAGES["staticfiles"]["BACKEND"]
+
+# In propsafe/settings.py
+
 STORAGES = {
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.StaticFilesStorage",
     },
 }
 
-# Compatibility line for django-cloudinary-storage
-STATICFILES_STORAGE = STORAGES["staticfiles"]["BACKEND"]
-
+# Compatibility for django-cloudinary-storage
+STATICFILES_STORAGE = "whitenoise.storage.StaticFilesStorage"
 
 MEDIA_URL = '/media/'
 
