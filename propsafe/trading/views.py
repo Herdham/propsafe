@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 from account.models import Profile
+from django.http import HttpResponse
 
 User = get_user_model()
 
@@ -104,21 +105,37 @@ def trades(request):
 
 
 #dashboard
-@login_required(login_url='')
+@login_required(login_url="")
 def dashboard(request):
-    user = User.objects.get(id=request.user.id)
-    profile = Profile.objects.get(user=user)
-    trades = Trade.objects.filter(user=request.user)[:5]
-    total_trades = Trade.objects.filter(user=request.user).count()
-    wining_trades = Trade.objects.filter(user=request.user, result="win").count()
-    losing_trades = Trade.objects.filter(user=request.user, result="loss").count()
-    forex = Trade.objects.filter(user=request.user, market="Forex").count()
-    crypto = Trade.objects.filter(user=request.user, market="Crypto").count()
-    net_pnl = Trade.objects.filter(user=request.user).aggregate(total=Sum("profit_and_loss"))
-    if total_trades > 0:
-        win_rate = round((wining_trades / total_trades) * 100, 2)
-    else:
-        win_rate = 0
-    
-    context = {"user": user, "trades": trades, "profile": profile, "total_trades": total_trades, "win_rate": win_rate, "net_pnl": net_pnl, "wining_trades": wining_trades, "losing_trades": losing_trades, "forex": forex, "crypto": crypto}
+    user = request.user
+    profile, created = Profile.objects.get_or_create(user=user)
+
+    user_trades = Trade.objects.filter(user=user)
+
+    trades = user_trades[:5]
+    total_trades = user_trades.count()
+    winning_trades = user_trades.filter(result="win").count()
+    losing_trades = user_trades.filter(result="loss").count()
+    forex = user_trades.filter(market="Forex").count()
+    crypto = user_trades.filter(market="Crypto").count()
+
+    # Safely extract total PnL from dictionary and default to 0 if None
+    pnl_data = user_trades.aggregate(total=Sum("profit_and_loss"))
+    net_pnl = pnl_data["total"] if pnl_data["total"] is not None else 0
+
+    win_rate = round((winning_trades / total_trades) * 100, 2) if total_trades else 0
+
+    context = {
+        "user": user,
+        "profile": profile,
+        "trades": trades,
+        "total_trades": total_trades,
+        "winning_trades": winning_trades,
+        "losing_trades": losing_trades,
+        "win_rate": win_rate,
+        "net_pnl": net_pnl,
+        "forex": forex,
+        "crypto": crypto,
+    }
+
     return render(request, "dashboard/home.html", context)
