@@ -8,6 +8,8 @@ from django.contrib.messages import error
 from .models import Profile
 from django.db.models import Sum
 from trading.models import Trade
+import numpy as np
+import pandas as pd
 
 User = get_user_model()
 
