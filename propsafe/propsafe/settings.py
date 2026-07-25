@@ -66,6 +66,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Tell WhiteNoise to ignore missing static files (like missing .map files) during collection
+WHITENOISE_MANIFEST_STRICT = False
+
 ROOT_URLCONF = 'propsafe.urls'
 
 TEMPLATES = [
