@@ -202,9 +202,15 @@
         <div class="profile_section_container">
             <div class="profile_section_details">
                 <div class="image">
-                    <a href="#">
-                        <img src="{{profile.profile_picture.url}}" alt="">
-                    </a>
+                    {% if profile.profile_picture %}
+                        <a href="{{profile.profile_picture.url}}">
+                            <img src="{{profile.profile_picture.url}}" alt="">
+                        </a>
+                    {% else %}
+                        <a href="#">
+                            <img src="{% static 'images/images.png' %}" alt="">
+                        </a>
+                    {% endif %}
                     <svg id="upload_picture_btn" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                         class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
