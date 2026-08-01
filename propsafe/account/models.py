@@ -24,7 +24,6 @@ class Profile(models.Model):
     class ConnectionType(models.TextChoices):
         manual = ('mn', 'manual')
         mt5 = ('mt5', 'MT5')
-
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="profile")
     profile_picture = models.ImageField(upload_to="profile/", blank=True, null=True)
     bio = models.TextField(blank=True, null=True, default='')

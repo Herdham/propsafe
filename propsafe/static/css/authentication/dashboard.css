@@ -6,8 +6,13 @@
 }
 
 :root {
-    --primary_background: #0A0E1A;
-    --card_background: rgba(225, 255, 255, 0.04);
+    --primary_background: #0E1117;
+    --secondary_background: #111827;
+    --card_background: #1A1F2E;
+    --primary_text: #F3F4F6;
+    --secondary_text: #9CA3AF;
+    --primary_accent: #E50914;
+    --secondary_accent: #6B21A8;
     --border: rgba(225, 255, 255, 0.06);
     --text_primary: #ffffff;
     --text_secondary: #8892B0;
@@ -44,7 +49,7 @@ body {
     padding: 10px;
     position: fixed;
     top: 0;
-    background-color: #dddddd;
+    background-color: var(--primary_background);
     overflow-y: auto;
 }
 
@@ -57,7 +62,11 @@ body {
 .container header .logo svg {
     stroke-width: 3px;
     margin-right: 10px;
-    stroke: #B926FF;
+    stroke: var(--primary_accent);
+}
+
+.container header .logo h3{
+    color: var(--secondary_text);
 }
 
 .container header ul {
@@ -73,12 +82,12 @@ body {
 }
 
 .container header ul a:nth-child(1) {
-    background-color: #e5cef0;
+    background-color: var(--secondary_background);
     border-radius: 6px;
 }
 
 .container header ul a:hover {
-    background-color: #e5cef0;
+    background-color: var(--secondary_background);
     border-radius: 6px;
 }
 
@@ -86,12 +95,12 @@ body {
     margin-right: 10px;
     width: 20px;
     height: 20px;
-    stroke: #0A0E1A;
+    stroke: var(--secondary_text);
 }
 
 .container header ul a p {
     font-size: 13px;
-    color: #0A0E1A;
+    color: var(--secondary_text);
 }
 
 .container header .ai_coach {
@@ -115,12 +124,11 @@ body {
 .container header .ai_coach button {
     border: none;
     outline: none;
-    background-color: var(--accent_purple);
+    background-color: var(--primary_accent);
     color: #ffffff;
     width: 100%;
     padding: 8px;
     border-radius: 5px;
-
     cursor: pointer;
 }
 
@@ -144,15 +152,18 @@ body {
 
 .container header .user_info .user_info_container .user_header h4 {
     font-size: 14px;
+    color: var(--primary_text);
 }
 
 .container header .user_info .user_info_container .user_header p {
+    color: var(--primary_text);
     font-size: 12px;
 }
 
 .container header .user_info svg {
     cursor: pointer;
     align-self: flex-start;
+    stroke: var(--primary_text);
 }
 
 .container .sidebar_popup{
@@ -198,7 +209,7 @@ body {
 }
 
 .container .sidebar_popup .popup_container .logo svg{
-    stroke: var(--accent_purple);
+    stroke: var(--primary_accent);
     stroke-width: 3;
     margin-right: 10px;
 }
@@ -218,17 +229,18 @@ body {
     text-decoration: none;
     display: flex;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.80);
+    background-color: var(--secondary_background);
     border-radius: 6px;
 }
 
 .container .sidebar_popup .popup_container ul a svg{
     margin-right: 10px;
-    stroke: #dddddd;
+    stroke: var(--secondary_text);
 }
 
 .container .sidebar_popup .popup_container ul a p{
-    color: #ddd;
+    color: var(--secondary_text);
+    font-size: 13px;
 }
 
 .container .sidebar_popup .popup_container .ai_coach {
@@ -252,7 +264,7 @@ body {
 .container .sidebar_popup .popup_container .ai_coach button {
     border: none;
     outline: none;
-    background-color: var(--accent_purple);
+    background-color: var(--primary_accent);
     color: #ffffff;
     width: 100%;
     padding: 8px;
@@ -345,9 +357,9 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
-    background-color: var(--accent_purple);
-    color: #fff;
-    padding: 8px;
+    background-color: var(--card_background);
+    color: hsl(0, 0%, 100%);
+    padding: 6px;
     border-radius: 5px;
     margin-right: 10px;
 }
@@ -384,7 +396,7 @@ body {
     position: fixed;
     bottom: 0;
     z-index: 9999;
-    background-color: #fff;
+    background-color: var(--primary_background);
     margin: 0px;
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
     display: none;
@@ -406,17 +418,17 @@ body {
 .container main .nav_bottom ul a svg{
     width: 20px;
     height: 20px;
-    stroke: #B926FF;
+    stroke: var(--secondary_text);
 }
 
 .container main .nav_bottom ul a p{
     font-size: 12px;
-    color: #0A0E1A;
+    color: var(--secondary_text);
 }
 .container main .nav_bottom ul a:nth-child(3) svg{
     padding: 8px;
     border-radius: 50%;
-    background-color: #B926FF;
+    background-color: var(--primary_accent);
     stroke: #fff;
     width: 35px;
     height: 35px;
@@ -534,8 +546,6 @@ body {
     border-radius: 6px;
     padding: 10px;
     grid-column: 1 / 4;
-    height: auto;
-    align-self: flex-start;
 }
 
 .container main section .recent_trade .recent .recent_header {
@@ -669,7 +679,7 @@ td {
 
 .container main section .daily_check_in #continue_streak{
     padding: 8px;
-    background-color: var(--accent_purple);
+    background: linear-gradient(90deg, var(--primary_accent), var(--accent_purple));
     color: #fff;
     font-size: 13px;
     text-decoration: none;
@@ -1265,7 +1275,7 @@ td {
 .container main .trade_options input[type="submit"] {
     border: none;
     outline: none;
-    background-color: var(--accent_purple);
+    background-color: var(--primary_background);
     color: #fff;
     width: 100%;
     padding: 8px;
@@ -1303,7 +1313,7 @@ td {
     padding: 8px;
     border-radius: 25px;
     font-size: 12px;
-    background-color: var(--accent_purple);
+    background-color: var(--secondary_background);
     color: #fff;
 }
 
@@ -1341,7 +1351,7 @@ td {
 
 .container .main_profile .profile_section_container .profile_section_details .image svg {
     position: absolute;
-    background-color: var(--accent_purple);
+    background-color: var(--card_background);
     padding: 8px;
     border-radius: 50%;
     stroke: #fff;
@@ -1596,7 +1606,7 @@ td {
 .container .main_profile .upload_picture form input[type="submit"]{
     width: 100%;
     padding: 8px;
-    background-color: var(--accent_purple);
+    background-color: var(--secondary_background);
     color: #fff;
     font-size: 13px;
     border-radius: 6px;
@@ -1700,7 +1710,7 @@ td {
 .container .main_setting .setting_section_info button {
     border: none;
     outline: none;
-    background-color: var(--accent_purple);
+    background-color: var(--secondary_background);
     padding: 8px;
     color: #fff;
     border-radius: 6px;

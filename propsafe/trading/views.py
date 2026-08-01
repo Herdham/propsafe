@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Trade, TradeScreenShot
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
-from django.db.models import Sum
+from django.db.models import Sum, Max, Min
 from account.models import Profile
 from django.http import HttpResponse
 
@@ -118,12 +118,16 @@ def dashboard(request):
     losing_trades = user_trades.filter(result="loss").count()
     forex = user_trades.filter(market="Forex").count()
     crypto = user_trades.filter(market="Crypto").count()
+    r_r = user_trades.aggregate(rr_sum=Sum("risk_per_trade"))
 
     # Safely extract total PnL from dictionary and default to 0 if None
     pnl_data = user_trades.aggregate(total=Sum("profit_and_loss"))
     net_pnl = pnl_data["total"] if pnl_data["total"] is not None else 0
-
     win_rate = round((winning_trades / total_trades) * 100, 2) if total_trades else 0
+    loss_rate = round((losing_trades / total_trades) * 100, 2) if total_trades else 0
+    average_rr = round((r_r["rr_sum"] / total_trades), 1) if total_trades else 0
+    largest_win = user_trades.aggregate(largestWin=Max("profit_and_loss"))["largestWin"] if user_trades else 0
+    largest_loss = user_trades.aggregate(largestLoss=Min("profit_and_loss"))["largestLoss"] if user_trades else 0
 
     context = {
         "user": user,
@@ -133,7 +137,11 @@ def dashboard(request):
         "winning_trades": winning_trades,
         "losing_trades": losing_trades,
         "win_rate": win_rate,
+        "loss_rate": loss_rate,
         "net_pnl": net_pnl,
+        "average_rr": average_rr,
+        "largest_win": largest_win,
+        "largest_loss": largest_loss,
         "forex": forex,
         "crypto": crypto,
     }

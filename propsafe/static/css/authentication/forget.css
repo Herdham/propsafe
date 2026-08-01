@@ -6,8 +6,13 @@
 }
 
 :root {
-    --primary_background: #0A0E1A;
-    --card_background: rgba(225, 255, 255, 0.04);
+    --primary_background: #0E1117;
+    --secondary_background: #111827;
+    --card_background: #1A1F2E;
+    --primary_text: #F3F4F6;
+    --secondary_text: #9CA3AF;
+    --primary_accent: #E50914;
+    --secondary_accent: #6B21A8;
     --border: rgba(225, 255, 255, 0.06);
     --text_primary: #ffffff;
     --text_secondary: #8892B0;
@@ -113,10 +118,11 @@ body {
     padding: 8px;
     border: none;
     outline: none;
-    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    background: linear-gradient(320deg, var(--primary_accent), var(--accent_purple));
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 6px;
+    color: #fff;
 }
 
 .forget_popup p a {

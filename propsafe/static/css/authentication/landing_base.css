@@ -6,8 +6,13 @@
 }
 
 :root {
-    --primary_background: #0A0E1A;
-    --card_background: rgba(225, 255, 255, 0.04);
+    --primary_background: #0E1117;
+    --secondary_background: #111827;
+    --card_background: #1A1F2E;
+    --primary_text: #F3F4F6;
+    --secondary_text: #9CA3AF;
+    --primary_accent: #E50914;
+    --secondary_accent: #6B21A8;
     --border: rgba(225, 255, 255, 0.06);
     --text_primary: #ffffff;
     --text_secondary: #8892B0;
@@ -37,7 +42,7 @@ nav {
     position: fixed;
     top: 0;
     z-index: 20;
-    color: var(--text_primary);
+    color: var(--primary_text);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,7 +56,7 @@ nav .first {
 nav .first svg {
     margin-right: 10px;
     stroke-width: 2px;
-    stroke: #B926FF;
+    stroke: var(--primary_accent);
 }
 
 nav .second ul {
@@ -65,7 +70,7 @@ nav .second ul li {
 }
 
 nav .second ul li a {
-    color: #ffffff;
+    color: var(--primary_text);
     text-decoration: none;
     font-size: 15px;
 }
@@ -76,12 +81,12 @@ nav .third {
 }
 
 nav .third button {
-    border: none;
+    border: 1px solid #9CA3AF;
     outline: none;
     padding: 8px;
     border-radius: 5px;
-    background: linear-gradient(320deg, var(--accent_green), var(--accent_purple));
-    color: var(--text_primary);
+    background: var(--primary_background);
+    color: var(--primary_text);
     width: 100px;
     cursor: pointer;
     white-space: nowrap;
@@ -146,7 +151,7 @@ svg {
 
 .login_popup .popup_body h4 {
     text-align: center;
-    color: #fff;
+    color: var(--primary_accent);
 }
 
 .login_popup .popup_body p {
@@ -224,10 +229,11 @@ svg {
     padding: 8px;
     border: none;
     outline: none;
-    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    background: linear-gradient(320deg, var(--primary_accent), var(--accent_purple));
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 6px;
+    color: #fff;
 }
 
 .login_popup p a {
@@ -285,7 +291,7 @@ svg {
 
 .signup_popup .popup_body h4 {
     text-align: center;
-    color: #fff;
+    color: var(--primary_accent);
 }
 
 .signup_popup .popup_body p {
@@ -425,10 +431,11 @@ svg {
     padding: 8px;
     border: none;
     outline: none;
-    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    background: linear-gradient(320deg, var(--primary_accent), var(--accent_purple));
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 6px;
+    color: #fff;
 }
 
 .signup_popup p a {
@@ -548,7 +555,7 @@ svg {
 /* Forget_Popup CSS Styling End here */
 
 main .hero {
-    /* background: linear-gradient(320deg, var(--primary_background), var(--accent_green)); */
+    background: linear-gradient(135deg, #0E1117, #111827, #1F2937);
     padding-top: 50px;
     padding-bottom: 100px;
     padding-left: 5%;
@@ -560,6 +567,7 @@ main .hero header {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
+    margin-bottom: 60px;
 }
 
 main .hero header .first {
@@ -569,10 +577,10 @@ main .hero header .first {
 main .hero header .first .discipline {
     display: flex;
     align-items: center;
-    border: 1px solid var(--accent_green);
+    border: 1px solid var(--primary_accent);
     outline: none;
     background-color: #0A0E1A;
-    color: var(--accent_green);
+    color: var(--primary_accent);
     padding: 6px;
     border-radius: 25px;
     font-size: 9px;
@@ -591,8 +599,15 @@ main .hero header .first .discipline p {
 }
 
 main .hero header .first h1 {
-    color: #00F5A0;
+    color: var(--primary_text);
     margin-bottom: 6px;
+}
+
+main .hero header .first h1 strong{
+    background: linear-gradient(90deg, var(--primary_accent), var(--accent_purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 main .hero header .first p {
@@ -604,7 +619,7 @@ main .hero header .first #getStartedBtn {
     padding: 10px;
     border: none;
     outline: none;
-    background: var(--accent_purple);
+    background: var(--primary_accent);
     border: var(--border);
     border-radius: 5px;
     color: #ffffff;
@@ -705,6 +720,13 @@ main .hero .mobile_responsive .mobile_details h1{
     color: #ddd;
 }
 
+main .hero .mobile_responsive .mobile_details h1 strong{
+    background: linear-gradient(90deg, var(--primary_accent), var(--accent_purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 main .hero .mobile_responsive .mobile_details p{
     color: #ddd;
     font-size: 12px;
@@ -738,7 +760,7 @@ main .hero .mobile_responsive .mobile_details button{
     border: none;
     outline: none;
     padding: 8px;
-    background-color: green;
+    background-color: var(--primary_accent);
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
@@ -862,9 +884,10 @@ main .pricing_section .pricing_card .card button {
     border: none;
     outline: none;
     padding: 8px;
-    background: linear-gradient(320deg, var(--accent_purple), var(--accent_green));
+    background: linear-gradient(320deg, var(--primary_accent), var(--accent_purple));
     width: 100%;
     border-radius: 25px;
+    color: #fff;
 }
 
 main .pricing_section .pricing_card .pricing1 h4 {
@@ -1023,7 +1046,7 @@ footer .footer_menu .card:nth-child(5) .inbox input[type="submit"] {
     margin-right: 10px;
     border: none;
     outline: none;
-    background-color: var(--accent_purple);
+    background-color: var(--primary_accent);
     padding: 8px;
     border-radius: 6px;
     color: #ffffff;
